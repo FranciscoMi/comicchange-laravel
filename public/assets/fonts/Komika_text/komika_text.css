@@ -1,0 +1,240 @@
+@font-face {
+    font-family: 'Komika Text Kaps';
+    src: url('KomikaTextKaps-BoldItalic.eot');
+    src: url('KomikaTextKaps-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('KomikaTextKaps-BoldItalic.woff2') format('woff2'),
+        url('KomikaTextKaps-BoldItalic.woff') format('woff'),
+        url('KomikaTextKaps-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Komika Text';
+    src: url('KomikaText.eot');
+    src: url('KomikaText.eot?#iefix') format('embedded-opentype'),
+        url('KomikaText.woff2') format('woff2'),
+        url('KomikaText.woff') format('woff'),
+        url('KomikaText.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Komika Text Kaps';
+    src: url('KomikaTextKaps-Italic.eot');
+    src: url('KomikaTextKaps-Italic.eot?#iefix') format('embedded-opentype'),
+        url('KomikaTextKaps-Italic.woff2') format('woff2'),
+        url('KomikaTextKaps-Italic.woff') format('woff'),
+        url('KomikaTextKaps-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Komika Text';
+    src: url('KomikaText-Italic.eot');
+    src: url('KomikaText-Italic.eot?#iefix') format('embedded-opentype'),
+        url('KomikaText-Italic.woff2') format('woff2'),
+        url('KomikaText-Italic.woff') format('woff'),
+        url('KomikaText-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Komika Text Kaps';
+    src: url('KomikaTextKaps-Bold.eot');
+    src: url('KomikaTextKaps-Bold.eot?#iefix') format('embedded-opentype'),
+        url('KomikaTextKaps-Bold.woff2') format('woff2'),
+        url('KomikaTextKaps-Bold.woff') format('woff'),
+        url('KomikaTextKaps-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Komika Text';
+    src: url('KomikaText-Bold.eot');
+    src: url('KomikaText-Bold.eot?#iefix') format('embedded-opentype'),
+        url('KomikaText-Bold.woff2') format('woff2'),
+        url('KomikaText-Bold.woff') format('woff'),
+        url('KomikaText-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Komika Text Kaps';
+    src: url('KomikaTextKaps.eot');
+    src: url('KomikaTextKaps.eot?#iefix') format('embedded-opentype'),
+        url('KomikaTextKaps.woff2') format('woff2'),
+        url('KomikaTextKaps.woff') format('woff'),
+        url('KomikaTextKaps.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Komika Text';
+    src: url('KomikaText-BoldItalic.eot');
+    src: url('KomikaText-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('KomikaText-BoldItalic.woff2') format('woff2'),
+        url('KomikaText-BoldItalic.woff') format('woff'),
+        url('KomikaText-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Komika Text Tight';
+    src: url('KomikaTextTight.eot');
+    src: url('KomikaTextTight.eot?#iefix') format('embedded-opentype'),
+        url('KomikaTextTight.woff2') format('woff2'),
+        url('KomikaTextTight.woff') format('woff'),
+        url('KomikaTextTight.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Komika Text Tight';
+    src: url('KomikaTextTight-Italic.eot');
+    src: url('KomikaTextTight-Italic.eot?#iefix') format('embedded-opentype'),
+        url('KomikaTextTight-Italic.woff2') format('woff2'),
+        url('KomikaTextTight-Italic.woff') format('woff'),
+        url('KomikaTextTight-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Komika Text';
+    src: url('KomikaText_1.eot');
+    src: url('KomikaText_1.eot?#iefix') format('embedded-opentype'),
+        url('KomikaText_1.woff2') format('woff2'),
+        url('KomikaText_1.woff') format('woff'),
+        url('KomikaText_1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Komika Text';
+    src: url('KomikaText-Italic_1.eot');
+    src: url('KomikaText-Italic_1.eot?#iefix') format('embedded-opentype'),
+        url('KomikaText-Italic_1.woff2') format('woff2'),
+        url('KomikaText-Italic_1.woff') format('woff'),
+        url('KomikaText-Italic_1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Komika Text';
+    src: url('KomikaText-Bold_1.eot');
+    src: url('KomikaText-Bold_1.eot?#iefix') format('embedded-opentype'),
+        url('KomikaText-Bold_1.woff2') format('woff2'),
+        url('KomikaText-Bold_1.woff') format('woff'),
+        url('KomikaText-Bold_1.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Komika Text Kaps';
+    src: url('KomikaTextKaps_1.eot');
+    src: url('KomikaTextKaps_1.eot?#iefix') format('embedded-opentype'),
+        url('KomikaTextKaps_1.woff2') format('woff2'),
+        url('KomikaTextKaps_1.woff') format('woff'),
+        url('KomikaTextKaps_1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Komika Text';
+    src: url('KomikaText-BoldItalic_1.eot');
+    src: url('KomikaText-BoldItalic_1.eot?#iefix') format('embedded-opentype'),
+        url('KomikaText-BoldItalic_1.woff2') format('woff2'),
+        url('KomikaText-BoldItalic_1.woff') format('woff'),
+        url('KomikaText-BoldItalic_1.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Komika Text Kaps';
+    src: url('KomikaTextKaps-BoldItalic_1.eot');
+    src: url('KomikaTextKaps-BoldItalic_1.eot?#iefix') format('embedded-opentype'),
+        url('KomikaTextKaps-BoldItalic_1.woff2') format('woff2'),
+        url('KomikaTextKaps-BoldItalic_1.woff') format('woff'),
+        url('KomikaTextKaps-BoldItalic_1.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Komika Text Tight';
+    src: url('KomikaTextTight-Italic_1.eot');
+    src: url('KomikaTextTight-Italic_1.eot?#iefix') format('embedded-opentype'),
+        url('KomikaTextTight-Italic_1.woff2') format('woff2'),
+        url('KomikaTextTight-Italic_1.woff') format('woff'),
+        url('KomikaTextTight-Italic_1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Komika Text Kaps';
+    src: url('KomikaTextKaps-Bold_1.eot');
+    src: url('KomikaTextKaps-Bold_1.eot?#iefix') format('embedded-opentype'),
+        url('KomikaTextKaps-Bold_1.woff2') format('woff2'),
+        url('KomikaTextKaps-Bold_1.woff') format('woff'),
+        url('KomikaTextKaps-Bold_1.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Komika Text Kaps';
+    src: url('KomikaTextKaps-Italic_1.eot');
+    src: url('KomikaTextKaps-Italic_1.eot?#iefix') format('embedded-opentype'),
+        url('KomikaTextKaps-Italic_1.woff2') format('woff2'),
+        url('KomikaTextKaps-Italic_1.woff') format('woff'),
+        url('KomikaTextKaps-Italic_1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Komika Text Tight';
+    src: url('KomikaTextTight_1.eot');
+    src: url('KomikaTextTight_1.eot?#iefix') format('embedded-opentype'),
+        url('KomikaTextTight_1.woff2') format('woff2'),
+        url('KomikaTextTight_1.woff') format('woff'),
+        url('KomikaTextTight_1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

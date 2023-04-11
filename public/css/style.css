@@ -1,0 +1,503 @@
+
+/*Tipos de fuente*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import url('../assets/fonts/Komika_text/komika_text.css');
+
+/*Variables*/
+:root{
+    /*Colores de la aplicación*/
+	--color_blue:#4483A5;
+	--color_green:#4Eb348;
+	--color_red: #D22626;
+	--color_yellow: #EDEE56;
+	--color_grey: #808080;
+
+	--text_white: white;
+	--Komika:'Komika Text';
+	--cardMargin:5px;
+    --inputHalf:125px;
+    --inputLong:190px;
+	--inputShort:50px;
+    --lateralMenu:350px;
+}
+
+body{
+	margin:0;
+	box-sizing: border-box;
+	font-family:'Roboto', sans-serif;
+    z-index: 0;
+}
+
+/*Formato fijo para todos los cuadros de texto*/
+form input{
+	width:250px;
+	height:20px;
+}
+
+/*Estilo del boton que oculta el menú lateral*/
+#btnHide{
+  position: absolute;
+  left:90%;
+  top: 20%;
+}
+
+#btnHide:hover{
+	cursor: pointer;
+}
+
+/*Formulario de registro y entrada al sistema*/
+#formLogin p{
+	margin-left: 20px;
+}
+
+#formLogin input[type='submit'],
+#formLogin input[type='reset']{
+	max-width:200px;
+	height:50px;
+}
+
+/*Formulario de búsqueda. Todavía por configurar*/
+#formSearch,
+#formLogin,
+.title,
+.label{
+	display: block;
+	margin:0.5em;
+}
+
+#formSearch div{
+	position: relative;
+	margin: 0 auto;
+	width: fit-content;
+	}
+
+#hiddenLayer{
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.75);
+}
+
+#searchPublisher,
+#searchText{
+    max-width:500px;
+	min-width:320px;
+    width: 75vw;
+}
+
+/*Estilo del menú lateral*/
+.aside{
+	margin-top:0;
+	margin-bottom:20px;
+	padding:10px;
+}
+
+	/* Aparece la barra de desplazamiento vertical cuando se desborda el contenido */
+.aside__bar{
+	height: 85vh;
+	overflow-y: auto;
+}
+
+.aside__box,
+.menu{
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.75);
+}
+
+.aside__hide{
+	transition: transform 1s ease-out;
+}
+
+.aside__hide--active{
+	transform: translateX(calc(40px - var(--lateralMenu)));
+}
+
+.aside__width{
+    min-width: var(--lateralMenu);
+}
+
+/*Estilos de las ventanas que se desplazan*/
+.banner{
+  left:calc(50% - 200px);
+  position:absolute;
+  top:25vh;
+  z-index: 10;
+}
+
+
+/*Estilos para todos lo elementos con clase box*/
+.box{
+	display: flex;
+	justify-content:space-between;
+}
+
+.box__stretch{
+	align-self:stretch;
+}
+
+.box__center{
+	justify-content: center;
+}
+
+.box__evenly{
+    justify-content: space-evenly;
+}
+
+.box__right{
+    justify-content: flex-start;
+}
+
+.box__padding{
+	padding:0 20px;
+}
+
+.box__relative{
+  position: relative;
+}
+
+.box__right--margin-right{
+    margin-right: 10px;
+}
+
+.box--column{
+  align-items: center;
+}
+
+.box--column__child{
+  flex-basis: 50%;
+  width: 50%;
+  margin-right: auto;
+}
+
+.box--wrap{
+	flex-wrap: wrap;
+}
+
+/*Estilos para los botones*/
+.btn{
+background-color:transparent;
+border: 0;
+color: white;
+padding-left: 10px;
+padding-right: 10px;
+}
+
+.btn:hover{
+	cursor:pointer;
+}
+
+.btn__transition{
+	transition:all 0.5s;
+}
+
+.btn__transition:hover{
+	padding-right: 50px;
+}
+
+.btn__transition::after{
+	content:' \00bb';
+}
+
+.btn--box, .framework{
+	border:2px groove var(--color_grey);
+}
+
+.btn--blue,
+.box__blue{
+	background-color: var(--color_blue);
+}
+
+.btn--green{
+	background-color: var(--color_green);
+}
+
+.btn--grey{
+    background-color: var(--color_grey);
+}
+
+.btn--red{
+	background-color: var(--color_red);
+}
+
+.btn--search{
+    height: 40px;
+    left:calc(100% - 50px);
+	position: absolute;
+    top:0;
+    width: 50px;
+}
+
+/*Estilos para las cajas que contienen la información*/
+.card{
+	width:150px;
+	padding:5px;
+	border: 1px solid var(--color_blue);
+}
+
+.card__350{
+	max-width: 350px;
+}
+
+.card__align{
+	justify-content: space-evenly;
+}
+
+.card--margin{
+	margin: var(--cardMargin);
+}
+
+/*Colores para los elementos*/
+.color--blue{
+	color:var(--color_blue);
+}
+
+.color--green, .menu--header{
+	color:var(--color_green);
+}
+
+.color--grey{
+	color:var(--color_grey);
+}
+
+.color--red{
+	color:var(--color_red);
+}
+
+/*Estilos para el pie de página*/
+.footer{
+	box-sizing: content-box;
+	padding: 10px;
+	height: 50px;
+}
+
+.footer__black{
+	background-color: black;
+	color: white;
+}
+
+.framework{
+	border-radius: 5px;
+	background-color: var(--color_blue);
+}
+
+.framework div{
+	padding-left:10px;
+    padding-right: 10px;
+	align-items: center;
+}
+
+.hidden{
+	display:none;
+    position:absolute;
+}
+
+.hiden--box{
+    position: sticky;
+    top:0;
+    width: 100%;
+    height:100%;
+
+}
+
+.icon{
+	display: inline-block;
+	width: 1.5em;
+}
+
+/*Formatos para las imágenes*/
+.img--50_50{
+	width:50px;
+	height:50px;
+}
+
+.img--75_120{
+  height:120px;
+  width:75px;
+}
+
+.img--150_50{
+	width:150px;
+	height:50px;
+}
+
+.img--150_75{
+	width: 150px;
+	height: 75px;
+}
+
+.img--150_250{
+	width: 150px;
+	height: 250px;
+}
+
+.img--500_300{
+	max-width:500px;
+	min-width:320px;
+	width:50vw;
+}
+
+.input__half{
+	max-width:var(--inputHalf);
+}
+
+.input__long{
+	max-width:var(--inputLong);
+}
+
+.input__short{
+	max-width:var(--inputShort);
+}
+
+.input__search{
+	border: 2px solid var(--color_grey);
+    height: 40px;
+    position: relative;
+}
+
+.input__search--border-no{
+    height: 40px;
+    border: 0;
+}
+
+.logo,
+.btn--box{
+	max-width:125px;
+	height:50px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.main-screen{
+	max-width:1200px;
+	margin-left:auto;
+	margin-right: auto;
+	padding: 0 10px;
+	margin-bottom: 20px;
+}
+
+.margin-top__50{
+	margin-top: 50px;
+}
+
+/*Estilos del menú*/
+.menu{
+	background-color:var(--color_blue);
+	height:55px;
+}
+
+.menu--header{
+  background-color:var(--color_yellow);
+  margin:0;
+  border-bottom: 2px inset var(--color_grey);
+}
+
+.menu__item{
+    display:inline;
+}
+
+.menu__list{
+    display: inline-block;
+    padding-left:0;
+}
+
+.menu__list:hover{
+    cursor: pointer;
+}
+
+.menu__link{
+    padding:0.5em 0.2em;
+}
+
+
+
+/*Estilos para las calificaciones*/
+.progress-bar{
+	width: 100%;
+	height: 20px;
+	background-color: var(--color_yellow);
+}
+
+.progress-bar__green{
+	height: 20px;
+	background-color: var(--color_green);
+}
+
+.retrait{
+	background-color: white;
+	border: 2px solid black;
+	margin:10px;
+}
+
+.table{
+    border:1px solid var(--color_grey);
+    padding: 5px;
+}
+
+.table__cell,
+.main--screen__content{
+    min-width:fit-content;
+}
+
+.text--center, .progress-bar{
+	text-align: center;
+}
+
+.text__box{
+    height: 10vh;
+    width:300px;
+    max-width: calc(var(--lateralMenu) - 75px);
+}
+/*EStilos para los textos*/
+.text--Komika,
+.progress-bar,
+form input,
+form select{
+	font-family: var(--Komika);
+	font-size: 16px;
+}
+
+.title--komika, .text-cite{
+  display: inline-block;
+  font-family: 'Komika Text Kaps';
+  font-style: italic;
+}
+
+.title--komika__big{
+	font-size: 42px;
+	margin:0;
+}
+
+.title--Komika__small, .text-cite{
+	font-size: 12px;
+}
+
+.title--white,
+.link:link,
+.link:visited{
+	color:white;
+}
+
+/*Media Queries*/
+@media(max-width:770px){
+	.box__column{
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+@media(max-width:670px){
+	.box__350{
+		max-width: 350px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.box__wrap{
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	h1.title{
+		display:none;
+	}
+}
