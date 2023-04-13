@@ -12,15 +12,22 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('datausers', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_datauser');
-            $table->string('email')->unique;
-            $table->tinyInteger('age_user')->nullable();
-            $table->string('city_user', 50)->nullable();
-            $table->string('country_user', 20)->nullable();
-            $table->string('cp_user', 15)->nullable();
-            $table->string('gender_user')->nullable();
-            $table->binary('img_user')->nullable();
+            $table->id();
+            $table->unsignedBigInteger('iddatauser');
+            $table->tinyInteger('age')->nullable();
+            $table->string('city', 50)->nullable();
+            $table->string('country', 20)->nullable();
+            $table->string('cp', 15)->nullable();
+            $table->string('gender')->nullable();
+            $table->binary('img')->nullable();
             $table->timestamps();
+
+            //Claves foraneas
+            $table->foreign('iddatauser')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

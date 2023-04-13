@@ -20,6 +20,7 @@
     --inputLong:190px;
 	--inputShort:50px;
     --lateralMenu:350px;
+    --btnWidth:50px;
 }
 
 body{
@@ -85,6 +86,10 @@ form input{
     max-width:500px;
 	min-width:320px;
     width: 75vw;
+}
+
+#tableUsers{
+    border: 0;
 }
 
 /*Estilo del menú lateral*/
@@ -360,6 +365,13 @@ padding-right: 10px;
     border: 0;
 }
 
+.line{
+    border-top: 1px solid var(--color_grey);
+    height: 0.2px;
+    margin: 5px auto;
+    padding: 0;
+}
+
 .logo,
 .btn--box{
 	max-width:125px;
@@ -435,9 +447,16 @@ padding-right: 10px;
 }
 
 .table__cell,
+.table td:nth-child(1),
 .main--screen__content{
-    min-width:fit-content;
+    max-width:fit-content;
 }
+
+.table-row:nth-child(odd){
+    background-color: var(--color_grey);
+    color: white;
+}
+
 
 .text--center, .progress-bar{
 	text-align: center;

@@ -28,7 +28,7 @@
 	@slot('register_alias','')
 	@slot('accreditation_forgot')
 	<p>
-		<a class="text--Komika text--center link" href="">¿No tienes cuenta?. Regístrate</a>
+		<a id="loginToRegister" class="text--Komika text--center link btn__close" href="#boxRegister#boxLogin">¿No tienes cuenta?. Regístrate</a>
 	</p>
 	@endslot
 @endcomponent
@@ -52,7 +52,7 @@
 	@endslot
 	@slot('accreditation_forgot')
     <p>
-		<a class="text--Komika text--center link" href="">¿Ya tienes cuenta?. Inicia sesión</a>
+		<a id="registerToLogin" class="text--Komika text--center link btn__close" href="#boxLogin#boxRegister">¿Ya tienes cuenta?. Inicia sesión</a>
 	</p>
     @endslot
 @endcomponent

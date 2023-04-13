@@ -1,21 +1,15 @@
 
-<form name="form_users" id="formAccessUsers" action="" method="GET" class="main-screen margin-top__50 main--screen__content">
-<section class="box">
-    <table id="roleRegister" class="text--Komika box table__cell">
+<form name="form_users" id="formAccessUsers" action="" method="GET" class="main-screen margin-top__50">
+<section>
+    <!--Si no hay usuarios pone un título-->
+    @if($users->isEmpty())
+    <h2 class=" title--komika title--komika__big">Esto está un poco vacio.<br>No hay usuarios</h2>
+    @else
+    <table id="tableUsers" class="text--Komika text--center table">
         <tr>
-            <th>
-                <span class="btn btn--green btn--box text--Komika text--center ">Modificar</span>
-            </th>
-            <th>
-                <span class="btn btn--red btn--box text--Komika text--center">Eliminar</span>
-            </th>
-            <th class="btn btn--grey card text--center"><a>Role</a></th>
-            <th class="btn btn--grey card text--center"><a>Alias</a></th>
-            <th class="btn btn--grey card text--center"><a>Mail</a></th>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
+            <td>
+                <span class="btn btn--red btn--box text--Komika">Eliminar</span>
+            </td>
             <td>
                 <div class="input__search">
                 <input type="search" name="search_Role" id="searchRole" class="input__search--border-no">
@@ -41,6 +35,22 @@
                 </div>
             </td>
         </tr>
+        <tr>
+            <td><span class="btn btn--green btn--box text--Komika">Modificar</span></td>
+            <td class="btn btn--grey card"><a>Role</a></td>
+            <td class="btn btn--grey card"><a>Alias</a></td>
+            <td class="btn btn--grey card"><a>Mail</a></td>
+        </tr>
+        <tr><td colspan="4"><hr class="line"></td></tr>
+        @foreach ($users as $user )
+        <tr class="table-row">
+            <td><input type="radio" name="user-radio" value="{{$user->id}} "class="input__short"></td>
+            <td>Role</td>
+            <td>{{$user->name}}</td>
+            <td>{{$user->email}}</td>
+        </tr>
+        @endforeach
+        @endif
     </table>
 </section>
 </form>
