@@ -1,4 +1,4 @@
-<nav class="menu box">
+<nav class="box">
 	<div>
         <img class="logo" src="../assets/icons/Logo.svg" alt="icon">
     </div>

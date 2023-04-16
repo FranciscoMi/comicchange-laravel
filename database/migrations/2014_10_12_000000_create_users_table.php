@@ -17,15 +17,14 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->unsignedBigInteger('idrole')->unique();
+            $table->unsignedBigInteger('idrole');
             $table->rememberToken();
             $table->timestamps();
 
             //CLaves foraneas
             $table->foreign('idrole')
                 ->references('id')
-                ->on('roles')
-                ->onUpdate('cascade');
+                ->on('roles');
         });
     }
 

@@ -1,4 +1,4 @@
-<footer class="footer footer__black">
+<footer class="footer footer__black @yield('footerclass')">
 	@yield('footer')
 </footer>
 <!--Menciones a los autores de las imagenes-->

@@ -7,7 +7,7 @@
 	const btnHide=document.querySelector('#btnHide');
     const aside=document.querySelector('#main');
 
-		//Métodos
+		//Método para ocultar o mostrar la ventana lateral
 	btnHide.addEventListener("click",()=>{
 			if (aside.classList.contains('aside__hide--active')){
         aside.classList.remove('aside__hide--active');

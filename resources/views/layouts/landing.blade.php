@@ -25,10 +25,7 @@
 	<!--Fin Metadatos buscadores-->
 </head>
 <body>
-    <div class="hidden hidden--box" id="hiddenLayer">
-
-    </div>
-  <header>
+  <header class="menu menu--sticky">
     @include('layouts._partials.menu')
   </header>
 

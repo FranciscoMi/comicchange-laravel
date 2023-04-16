@@ -6,27 +6,25 @@
   //Propiedades
   let boxAccess;
   const btnClose=document.querySelectorAll('.btn__close');
-  const hiddenLayer=document.querySelector('#hiddenLayer');
-  const loginToRegister=document.querySelector('#loginToRegister');
-  const registertoLogin=document.querySelector('#registerToLogin');
-  //const mainIndex=document.querySelector('body');
 
   //Método para cambiar entre login y register
   btnClose.forEach((btn)=>{
   btn.addEventListener("click",(e)=>{
-    hiddenLayer.setAttribute('height','100%');
+
+  //comprobamos que el valor seleccionado no sea nulo
   if (e.target.lastElementChild==null){
+    //Si es nulo es porque hemos hecho clic en un enlace directo
     const word=e.target.href.split('#');
     document.getElementById(word[2]).classList.add('hidden');
     boxAccess=document.getElementById(word[1]);
   }else{
     boxAccess=document.getElementById(e.target.lastElementChild.value);
   }//fin if
+
+  //Ocultamos o añadimos el banner seleccionado
   if (boxAccess.classList.contains('hidden')){
-    hiddenLayer.classList.remove('hidden')
     boxAccess.classList.remove('hidden');
   }else{
-    hiddenLayer.classList.add('hidden');
     boxAccess.classList.add('hidden');
   }//find if
 

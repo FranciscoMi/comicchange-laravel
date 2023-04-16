@@ -8,7 +8,7 @@
     <table id="tableUsers" class="text--Komika text--center table">
         <tr>
             <td>
-                <span class="btn btn--red btn--box text--Komika">Eliminar</span>
+                <span class=" btn btn--red btn--short">Eliminar</span>
             </td>
             <td>
                 <div class="input__search">
@@ -36,7 +36,7 @@
             </td>
         </tr>
         <tr>
-            <td><span class="btn btn--green btn--box text--Komika">Modificar</span></td>
+            <td><span class="btn btn--green btn--short">Modificar</span></td>
             <td class="btn btn--grey card"><a>Role</a></td>
             <td class="btn btn--grey card"><a>Alias</a></td>
             <td class="btn btn--grey card"><a>Mail</a></td>

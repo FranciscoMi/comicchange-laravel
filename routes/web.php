@@ -23,11 +23,17 @@ Route::get('/users',[UserController::class, 'index'])->name('user.index');
 
 /*Crea usuarios*/
 Route::get('/users/create',[userController::class, 'create'])->name('user.create');
+/*Almacenamos los datos de usuario encriptados del formulario */
+Route::post('/users/store',[UserController::class, 'store'])->name('user.store');
+
+/*Acceso usuarios*/
+Route::get('/users/login',[userController::class, 'login'])->name('user.login');
 
 Route::view('/comics','comics.index')->name('comics');
 
+
 //rutas Generadas por Laravel
-Route::get('/welcome', function () {
+/*Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -39,6 +45,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+});*/
 
 require __DIR__.'/auth.php';

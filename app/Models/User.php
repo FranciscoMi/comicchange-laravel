@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'idrole'
     ];
 
     /**
@@ -41,6 +42,5 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'idrole'=>'bigInteger'
     ];
 }

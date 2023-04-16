@@ -75,7 +75,7 @@ form input{
 
 #hiddenLayer{
     position: fixed;
-    z-index: 5;
+    z-index: 20;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.75);
@@ -127,14 +127,14 @@ form input{
   left:calc(50% - 200px);
   position:absolute;
   top:25vh;
-  z-index: 10;
+  z-index: 100;
 }
 
 
 /*Estilos para todos lo elementos con clase box*/
 .box{
 	display: flex;
-	justify-content:space-between;
+    justify-content:space-between;
 }
 
 .box__stretch{
@@ -166,8 +166,8 @@ form input{
 }
 
 .box--column{
-  align-items: center;
-}
+    align-items: center;
+  }
 
 .box--column__child{
   flex-basis: 50%;
@@ -184,8 +184,7 @@ form input{
 background-color:transparent;
 border: 0;
 color: white;
-padding-left: 10px;
-padding-right: 10px;
+padding: 5px;
 }
 
 .btn:hover{
@@ -198,10 +197,6 @@ padding-right: 10px;
 
 .btn__transition:hover{
 	padding-right: 50px;
-}
-
-.btn__transition::after{
-	content:' \00bb';
 }
 
 .btn--box, .framework{
@@ -233,6 +228,15 @@ padding-right: 10px;
     width: 50px;
 }
 
+.btn--short{
+    display: block;
+    border-radius: 10px;
+    border: 2px solid var(--color_grey);
+    width:75px;
+    margin: 0 5px;
+    padding: 0;
+    height: 25px;
+}
 /*Estilos para las cajas que contienen la información*/
 .card{
 	width:150px;
@@ -271,9 +275,15 @@ padding-right: 10px;
 
 /*Estilos para el pie de página*/
 .footer{
-	box-sizing: content-box;
+    box-sizing: border-box;
+    height: 50px;
 	padding: 10px;
-	height: 50px;
+	width: 100%;
+}
+
+.footer--down{
+    bottom:0;
+    position:fixed;
 }
 
 .footer__black{
@@ -297,7 +307,7 @@ padding-right: 10px;
     position:absolute;
 }
 
-.hiden--box{
+.hidden--box{
     position: sticky;
     top:0;
     width: 100%;
@@ -372,6 +382,11 @@ padding-right: 10px;
     padding: 0;
 }
 
+.link{
+    outline: none;
+    text-decoration: none;
+}
+
 .logo,
 .btn--box{
 	max-width:125px;
@@ -384,8 +399,16 @@ padding-right: 10px;
 	max-width:1200px;
 	margin-left:auto;
 	margin-right: auto;
+    min-width:350px;
 	padding: 0 10px;
 	margin-bottom: 20px;
+}
+
+.main--center{
+    align-items: center;
+    display: flex;
+    min-height: 80vh;
+    justify-content: center;
 }
 
 .margin-top__50{
@@ -402,6 +425,12 @@ padding-right: 10px;
   background-color:var(--color_yellow);
   margin:0;
   border-bottom: 2px inset var(--color_grey);
+}
+
+.menu--sticky{
+    position: sticky;
+    top:0;
+    z-index: 10;
 }
 
 .menu__item{
@@ -499,9 +528,9 @@ form select{
 
 /*Media Queries*/
 @media(max-width:770px){
-	.box__column{
-		flex-direction: column;
-		align-items: center;
+	.box__wrap{
+		flex-wrap: wrap;
+		justify-content: center;
 	}
 }
 
@@ -512,10 +541,6 @@ form select{
 		margin-right: auto;
 	}
 
-	.box__wrap{
-		flex-wrap: wrap;
-		justify-content: center;
-	}
 	h1.title{
 		display:none;
 	}

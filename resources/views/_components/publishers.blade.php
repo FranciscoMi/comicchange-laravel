@@ -3,7 +3,7 @@
   <section class="title--komika">
     <label for="search_publisher">Editorial</label>
 	<div class="input__search">
-	  <input type="search" name="search_publisher" id="searchPublisher" class="input__search--border-no">
+	  <input type="search" name="publisher" id="searchPublisher" class="input__search--border-no">
 	  <button class="btn btn--search btn--blue">
 		<i class="fa-solid fa-magnifying-glass" style="color: #edee56;"></i>
 	  </button>

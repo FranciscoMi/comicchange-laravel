@@ -6,66 +6,25 @@
 
 <!--Muestra los botones de registro en el navegador-->
 @section('register')
-	<button class="btn btn--green btn__transition text--Komika box__stretch btn__close">Reunirse
-        <input type="hidden" name="hidden_btnlogin" value="boxLogin">
-    </button>
-	<button class="btn btn--red btn__transition text--Komika box__stretch btn__close">Asociarse
-        <input type="hidden" name="hidden_btnRegister" value="boxRegister">
-    </button>
+	@include('layouts._partials.btnlogin')
 @endsection
 
 <!--Aquí incluyo todo lo que va a formar el cuerpo principal-->
 @section('main')
 
 <main class="main-screen" id="mainIndex">
-<!--Incluimos el enlace a la caja de login cuando se pulse el votón "Reunirse"-->
-@component('_components.login')
-    @slot('box_login','boxLogin')
-	@slot('image', 'assets/img/html/superheroes.png')
-	@slot('accreditation_heading','Entrando en la Bóveda')
-	@slot('accreditation_title','Acreditación')
-	@slot('accreditation_href','')
-	@slot('register_alias','')
-	@slot('accreditation_forgot')
-	<p>
-		<a id="loginToRegister" class="text--Komika text--center link btn__close" href="#boxRegister#boxLogin">¿No tienes cuenta?. Regístrate</a>
-	</p>
-	@endslot
-@endcomponent
-
-<!--Incluimos el enlace a la caja de login cuando se pulse el votón "Asociarse"-->
-@component('_components.login')
-    @slot('box_login','boxRegister')
-	@slot('image', 'assets/img/html/superheroes.png')
-	@slot('accreditation_heading','Registro en la Bóveda')
-	@slot('accreditation_title','Inscripción')
-	@slot('accreditation_href','')
-	@slot('register_alias')
-	<p>
-		<label for="input_password_repeat"><i class="fa-solid fa-unlock-keyhole fa-2xl icon" style="color: #EDEE56;"> </i></label>
-		<input type="password" name="repeat_password" id="repeatPassword" placeholder="Repetir contraseña">
-	</p>
-	<p>
-	    <label for="input_alias"><i class="fa-solid fa-user fa-2xl icon" style="color: #EDEE56;"></i></label>
-		<input type="text" name="input_alias" id="inputAlias" placeholder="Alias">
-	</p>
-	@endslot
-	@slot('accreditation_forgot')
-    <p>
-		<a id="registerToLogin" class="text--Komika text--center link btn__close" href="#boxLogin#boxRegister">¿Ya tienes cuenta?. Inicia sesión</a>
-	</p>
-    @endslot
-@endcomponent
 
 <!--En esta sección muestro la cubierta-->
-<section class="box box__column margin-top__50">
-	<div>
-			<h2 class="title title--komika title--komika__big text--center">Tu Catálogo de Comics digital</h2>
-				<h3 class="title--komika text--center color--blue">
-						¡Colecciones variadas. Llenas de contenido!<br>
-						¡Comics, Mangas, Tebeos, Historietas, Novelas Gráficas y más!</h3>
+<section class="box margin-top__50 box__wrap">
+	<div class="text--center">
+		<h2 class="title title--komika title--komika__big">Tu Catálogo de Comics digital</h2>
+		<h3 class="title--komika color--blue">
+			¡Colecciones variadas. Llenas de contenido!<br>
+			¡Comics, Mangas, Tebeos, Historietas, Novelas Gráficas y más!</h3>
 	</div>
-<div><img class="img--500_300" src="../assets/img/html/Marvel_Comics.jpg" alt="colecciones"></div>
+    <div>
+        <img class="img--500_300" src="../assets/img/html/Marvel_Comics.jpg" alt="colecciones">
+    </div>
 </section>
 
 <!--Esta sección servirá para buscar comics-->
@@ -79,7 +38,6 @@
 			</div>
 	</form>
 </section>
-
 <!--En esta sección aparecen los últimos cómics con un estilo de album de fotos-->
 <section class="box__350">
 	<h2 class="color--red title--komika">Últimas Subidas</h2>
