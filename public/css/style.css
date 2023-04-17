@@ -184,7 +184,7 @@ form input{
 background-color:transparent;
 border: 0;
 color: white;
-padding: 5px;
+padding: 1em 5px;
 }
 
 .btn:hover{
@@ -273,6 +273,11 @@ padding: 5px;
 	color:var(--color_red);
 }
 
+.disabled{
+    background-color: rgba(0,0,0,0.50);
+    border:1 solid var(--color_grey);
+}
+
 /*Estilos para el pie de página*/
 .footer{
     box-sizing: border-box;
@@ -322,8 +327,8 @@ padding: 5px;
 
 /*Formatos para las imágenes*/
 .img--50_50{
+    height:50px;
 	width:50px;
-	height:50px;
 }
 
 .img--75_120{
@@ -332,8 +337,8 @@ padding: 5px;
 }
 
 .img--150_50{
+    height:50px;
 	width:150px;
-	height:50px;
 }
 
 .img--150_75{
@@ -350,6 +355,13 @@ padding: 5px;
 	max-width:500px;
 	min-width:320px;
 	width:50vw;
+}
+
+.input__down{
+    position:relative;
+    top:10px;
+    left:calc(var(--lateralMenu) - 300px);
+    margin-bottom: 10px;
 }
 
 .input__half{
@@ -470,6 +482,11 @@ padding: 5px;
 	margin:10px;
 }
 
+.space{
+    display: inline-block;
+    min-width: 100px;
+}
+
 .table{
     border:1px solid var(--color_grey);
     padding: 5px;
@@ -484,6 +501,12 @@ padding: 5px;
 .table-row:nth-child(odd){
     background-color: var(--color_grey);
     color: white;
+}
+
+.table-row td:nth-child(1),
+.table-row td:nth-child(2)
+{
+    background-color: white;
 }
 
 
@@ -522,7 +545,8 @@ form select{
 
 .title--white,
 .link:link,
-.link:visited{
+.link:visited,
+.disabled{
 	color:white;
 }
 

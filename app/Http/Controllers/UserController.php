@@ -34,11 +34,16 @@ class UserController extends Controller
         'password'=>Hash::make($request->password)
       ]);
 
-      //Almaceno mensajes de éxito y fallo
-      Session::flash('success','El usuario se ha creado correctamente');
-      Session::flash('failed','Fallo al crear el usuario');
-      //redirijo al usuario al índice
-      return redirect()->route('index');
+      // Almacenar mensaje de éxito
+    Session::flash('success', 'El usuario se ha creado correctamente');
 
+      //redirijo al usuario a la página de donde partió
+      return back();
 	}
+
+    //Función que edita los datos del usuario
+    /*public function edit(User $users){
+        $users = User::all();
+        return view('users.index',compact('users'));
+    }*/
 }

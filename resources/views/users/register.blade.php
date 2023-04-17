@@ -13,7 +13,6 @@
 @section('main')
 <main class="main-screen main--center">
 
-
 @section('formaction')
     <form name="formregister" action="{{route('user.store')}}" id="formRegister" method="POST" >
     @csrf
@@ -29,7 +28,7 @@
 	@slot('register_alias')
 	<p>
 		<label for="password"><i class="fa-solid fa-unlock-keyhole fa-xl icon" style="color: #EDEE56;"> </i></label>
-		<input type="password" name="password" id="repeatPassword" placeholder="Repetir contraseña" required>
+		<input type="password" name="repeat_password" id="repeatPassword" placeholder="Repetir contraseña" required>
 	</p>
 	<p>
 		<label for="name"><i class="fa-solid fa-user fa-xl icon" style="color: #EDEE56;"></i></label>
@@ -39,11 +38,17 @@
     @section('btnlogin')
         <input class="btn btn--green btn--box" type="submit" value="Registro">
     @endsection
+
+    @if(session()->has('success'))
+        <div class="alert alert-success text--Komika text--center">{{ session()->get('success') }}</div>
+    @endif
+
 	@slot('accreditation_forgot')
 	<p>
 		<a id="registerToLogin" class="text--Komika text--center link btn__close" href="{{route('user.login')}}">¿Ya tienes cuenta?. Inicia sesión</a>
 	</p>
 	@endslot
+
 @endcomponent
 </main>
 @endsection
