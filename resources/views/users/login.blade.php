@@ -14,8 +14,7 @@
 <main class="main-screen main--center">
 
 @section('formaction')
-    <form name="formlogin" action="{{route('user.login')}}" id="formLogin" method="POST">
-    @csrf
+    <form name="formlogin" action="{{route('user.login')}}" id="formLogin" method="GET">
 @endsection
 
 
