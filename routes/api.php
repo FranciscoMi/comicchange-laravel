@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use app\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+//Rutas para login y access
+//Acceso al panel de creación de usuarios
+Route::post('/users/create',[AuthController::class, 'createUser'])->name('user.create');
+
+//Acceso al panel de autenticación de usuarios
+Route::get('/users/login',[AuthController::class, 'loginUser'])->name('user.login');
+
+//Ruta middleware para controlar los tokens de autorización
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
