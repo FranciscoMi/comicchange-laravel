@@ -3,21 +3,27 @@
 'use strict'
   //También nos aseguramos de cargar completamente el DOM
 document.addEventListener('DOMContentLoaded',()=>{
-//Propiedades
+
+    //Propiedades
 const btnHide=document.querySelector('#btnHide');
 const aside=document.querySelector('#main');
 const enabledPassword=document.querySelector('#newpassword');
 const inputPassword=document.querySelector('#password');
-	//Método para ocultar o mostrar la ventana lateral
+
+//-----Métodos------
+
+//Método para ocultar o mostrar la ventana lateral
 btnHide.addEventListener("click",()=>{
   if (aside.classList.contains('aside__hide--active')){
 	aside.classList.remove('aside__hide--active');
   }else{
 	aside.classList.add('aside__hide--active');
-  //fin if}
+  //fin if
   };//fin if
-});//gin btnhide
-	//Método para deshabilitar la casilla de cambiar de password
+});//fin btnhide
+
+
+//Método para deshabilitar la casilla de cambiar de password
   enabledPassword.addEventListener("click",(e)=>{
   if (e.target.classList.contains('disabled')){
     enabledPassword.labels[0].classList.remove('fa-lock');

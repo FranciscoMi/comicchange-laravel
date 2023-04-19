@@ -20,16 +20,22 @@ Route::view('/','index')->name('index');
 
 /* Mostrar los datos del usuario en su index*/
 Route::get('/users',[UserController::class, 'index'])->name('user.index');
-/*Route::get('/users/{id}',[UserController::class,'edit'])->name('user.edit');*/
 
-/*Crea usuarios*/
+/*Ruta del controlador para crear usuarios*/
 Route::get('/users/create',[userController::class, 'create'])->name('user.create');
+
+/*Ruta al controlador para editar un usuario*/
+Route::get('/users/{user}/edit',[UserController::class,'edit'])->name('user.edit');
 
 /*Acceso usuarios*/
 Route::get('/users/login',[userController::class, 'login'])->name('user.login');
 
-/*Almacenamos los datos de usuario encriptados del formulario */
+/*Ruta del controlador para almacenar los datos de usuario  */
 Route::post('/users/store',[UserController::class, 'store'])->name('user.store');
+
+/*Ruta del controlador para actualizar los datos de usuario  */
+Route::put('/users/update',[UserController::class, 'update'])->name('user.update');
+
 
 Route::view('/comics','comics.index')->name('comic.index');
 

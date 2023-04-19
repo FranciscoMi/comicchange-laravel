@@ -1,5 +1,4 @@
 
-
 @section('lateral_menu')
 <section class="box box__center">
   <img class="img--50_50 retrait" src="assets/icons/perfil_happy.svg" alt="retrato" id="perfilImg">
@@ -7,39 +6,53 @@
 </section>
 @if(!isset($user))
   @component('_components.edituser')
-    @slot('formUser')
-      <form name="formuser" action="#" method="POST" id="formUser">
-      @csrf
-    @endslot
 
-    @slot('nameUser',"")
-    @slot('emailUser',"")
+  @slot('formUser')
+	  <form name="formuser" action="{{route('user.store')}}" method="POST" id="formUser">
+	  @csrf
+	@endslot
 
-    @slot('roleUser')
-      <option value="1">Administrador</option>
-      <option value="2">Colaborador</option>
-      <option selected value="3" >Coleccionista</option>
-      <option value="4">Invitado</option>
-    @endslot
+	@slot('nameUser',"")
+	@slot('emailUser',"")
+
+	@slot('roleUser')
+	  <option value="1">Administrador</option>
+	  <option value="2">Colaborador</option>
+	  <option selected value="3" >Coleccionista</option>
+	  <option value="4">Invitado</option>
+	@endslot
+
+	@slot ('btncreateuser')
+		<input type="submit" class="btn btn--green text--center btn--box" value="Crea">
+	@endslot
+
   @endcomponent
 @else
   @component('_components.edituser')
-    @slot('formUser')
-      <form name="formuser" action="#" method="POST" id="formUser">
-      @csrf
-    @endslot
 
-    @slot('nameUser',"{{$user->name}}")
-    @slot('emailUser',"{{$user->email}}")
+  @slot('formUser')
+	<form name="formuser" action="{{route('user.update',$user->id)}}" method="POST" id="formUser">
+	@csrf
+    @method('PUT')
+	@endslot
+
+	@slot('nameUser',$user->name)
+	@slot('emailUser',$user->email)
 
   @slot('roleUser')
-    <option selected value="1">Administrador</option>
-    <option value="2">Colaborador</option>
-    <option value="3" >Coleccionista</option>
-    <option value="4">Invitado</option>
+	<option selected value="1">Administrador</option>
+	<option value="2">Colaborador</option>
+	<option value="3" >Coleccionista</option>
+	<option value="4">Invitado</option>
   @endslot
+
+  @slot ('btncreateuser')
+	<input type="submit" class="btn btn--green text--center btn--box" value="Actualiza">
+  @endslot
+
   @endcomponent
 @endif
+
 @endsection
 
 @include('layouts._partials.aside')

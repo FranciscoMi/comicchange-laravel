@@ -27,7 +27,11 @@
 <!--Sección de Laravel. insertamos un texto en el footer-->
 @section('footer')
 <div class="text-cite">
-	<span>&copy; Todos los derechos reservados. Menos los que no son de otros, claro. ---</span>
+	<span>&copy; Todos los derechos reservados. Menos los más reservados, claro. ---</span>
 	<span> Proyecto "ComicChange" para Ilerna.</span>
 </div>
+@endsection
+
+@section('scripts')
+    <script src="{{asset('js/modules/aside.js')}}"></script>
 @endsection

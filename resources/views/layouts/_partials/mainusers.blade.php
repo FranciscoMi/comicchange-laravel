@@ -49,8 +49,8 @@
                     <i class="fa-solid fa-trash-can fa-xl" style="color:#D22626"></i>
                 </a>
             </td>
-            <td><a><input type="radio" name="user-radio" value="{{$newuser->id}} "class="input__short"></a></td>
-            <td>{{$newuser->id}}</td>
+            <td><a href="{{route('user.edit',$newuser->id)}}"><input type="radio" name="user-radio" value="{{$newuser->id}} "class="input__short"></a></td>
+            <td>{{$newuser->idrole}}</td>
             <td>{{$newuser->name}}</td>
             <td>{{$newuser->email}}</td>
         </tr>
