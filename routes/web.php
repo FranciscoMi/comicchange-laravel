@@ -31,7 +31,7 @@ Route::get('/users/login',[userController::class, 'login'])->name('user.login');
 /*Almacenamos los datos de usuario encriptados del formulario */
 Route::post('/users/store',[UserController::class, 'store'])->name('user.store');
 
-Route::view('/comics','comics.index')->name('comics');
+Route::view('/comics','comics.index')->name('comic.index');
 
 
 //rutas Generadas por Laravel

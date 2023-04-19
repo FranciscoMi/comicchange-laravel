@@ -14,7 +14,7 @@
 <main class="main-screen main--center">
 
 @section('formaction')
-    <form name="formlogin" action="{{route('user.login')}}" id="formLogin" method="GET">
+    <form name="formlogin" action="{{route('user.loginAuth')}}" id="formLogin" method="POST">
 @endsection
 
 
@@ -34,7 +34,12 @@
     @section('btnlogin')
     <input class="btn btn--green btn--box" type="submit" value="Entrar">
     @endsection
+
+    @if(session()->has('failed'))
+        <div class="text--Komika text--center">{{ session()->get('failed') }}</div>
+    @endif
 @endcomponent
+
 </main>
 @endsection
 

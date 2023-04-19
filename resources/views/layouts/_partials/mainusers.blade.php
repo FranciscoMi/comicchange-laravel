@@ -42,17 +42,17 @@
         <tr>
             <td colspan="2"></td>
             <td colspan="3"><hr class="line"></td></tr>
-        @foreach ($users as $user )
+        @foreach ($users as $newuser )
         <tr class="table-row">
             <td>
                 <a class="btn" href="#">
                     <i class="fa-solid fa-trash-can fa-xl" style="color:#D22626"></i>
                 </a>
             </td>
-            <td><a><input type="radio" name="user-radio" value="{{$user->id}} "class="input__short"></a></td>
-            <td>Role</td>
-            <td>{{$user->name}}</td>
-            <td>{{$user->email}}</td>
+            <td><a><input type="radio" name="user-radio" value="{{$newuser->id}} "class="input__short"></a></td>
+            <td>{{$newuser->id}}</td>
+            <td>{{$newuser->name}}</td>
+            <td>{{$newuser->email}}</td>
         </tr>
         @endforeach
         @endif

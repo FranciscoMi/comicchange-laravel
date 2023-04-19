@@ -8,41 +8,40 @@ use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller{
 
   public function createUser(CreateUserRequest $request)
   {
   //Creamos un objeto usuario para comparar y hacer login
-    $user=User::create([
+  $user=User::create([
     'name'=>$request->name,
     'email'=>$request->email,
     'password'=>Hash::make($request->password),
     'idrole'=>'3'
-    ]);
+  ]);
 
   //En caso de que el usuario sea correcto, lanzamos un mensaje y creamos un token de sesión
-    return response()->json([
-      'status'=>true,
-      'message'=>'Usuario creado correctamente',
-      'token'=>$user->createToken("API TOKEN")->plainTextToken
-    ],200); //200, código de mensaje
+  return back()->with('success', 'El usuario se ha creado correctamente');
   }//end create user
 
   public function loginUser(LoginRequest $request){
     if(!Auth::attempt($request->only(['email','password']))){
-      return response()->json([
-        'status'=>false,
-        'message'=>'El Correo o la Contraseña no están en el sistema'
-      ],401); //código de error
+      return back()->with('failed', 'El Correo o la Contraseña no están en el sistema');
     }//end if
 
     $user=User::where('email',$request->email)->first();
-
-    return response()->json([
-      'status'=>true,
-      'message'=>'Acceso concedido',
-      'token'=>$user->createToken("API TOKEN")->plainTextToken
-    ],200);
+    Session::flash('success', 'Acceso concedido');
+      switch($user->idrole){
+        case 1:
+          return redirect()->route('user.index');
+          break;
+        case 2:
+          return redirect()->route('comic.index');
+          break;
+        default:
+          return redirect()->route('index');
+      }//end switch
   }
 }

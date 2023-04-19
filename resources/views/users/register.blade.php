@@ -14,8 +14,7 @@
 <main class="main-screen main--center">
 
 @section('formaction')
-    <form name="formregister" action="{{route('user.store')}}" id="formRegister" method="POST" >
-    @csrf
+    <form name="formregister" action="{{route('user.createAuth')}}" id="formRegister" method="POST" >
 @endsection
 
 <!--Incluimos el enlace de la carpeta _components a la caja de login cuando se pulse el votón "Asociarse"-->
@@ -40,7 +39,7 @@
     @endsection
 
     @if(session()->has('success'))
-        <div class="alert alert-success text--Komika text--center">{{ session()->get('success') }}</div>
+        <div class="alert alert-success text--Komika text--center">{{session()->get('success') }}</div>
     @endif
 
 	@slot('accreditation_forgot')

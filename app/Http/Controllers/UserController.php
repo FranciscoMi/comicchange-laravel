@@ -13,16 +13,17 @@ class UserController extends Controller
 	public function index(){
 		$users = User::all();
 		return view('users.index',compact('users'));
-	}
+	}//end index
+
 	//Muestra el cuadro de registro
 	public function create(){
 		return view('users.register');
-	}
+	}//end create
 
 	//Muestra el cuadro de login
 	public function login(){
 		return view('users.login');
-	}
+	}//end login
 
     //Función que recoge las peticiones POST del formulario
   	public function store(Request $request){
@@ -39,10 +40,10 @@ class UserController extends Controller
 
       //redirijo al usuario a la página de donde partió
       return back();
-	}
+	}//end store
 
     //Función que edita los datos del usuario
-    /*public function edit(User $users){
+    /*public function edit(User $user){
         $users = User::all();
         return view('users.index',compact('users'));
     }*/
