@@ -1,3 +1,4 @@
+@yield('scripts')
 <script src="{{asset('js/main.js')}}"></script>
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <!--<script>
@@ -6,4 +7,3 @@
 </script>
 <script src="https://www.google-analytics.com/analytics.js" async></script>-->
   <!--En este apartado se añaden los scripts particulares de cada página-->
-  @yield('scripts')

@@ -28,7 +28,7 @@ class AuthController extends Controller{
 
   public function loginUser(LoginRequest $request){
     if(!Auth::attempt($request->only(['email','password']))){
-      return back()->with('failed', 'El Correo o la Contraseña no están en el sistema');
+      return back()->withErrors(['failed'=> 'El Correo o la Contraseña no están en el sistema']);
     }//end if
 
     $user=User::where('email',$request->email)->first();

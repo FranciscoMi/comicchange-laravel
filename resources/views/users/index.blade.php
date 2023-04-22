@@ -5,14 +5,14 @@
 @section('section_title','Administración de usuarios')
 
 @section('register')
-    <button class="btn btn--green btn__transition text--Komika box__stretch btn__close">
+    <a class="btn btn--green btn__transition text--Komika box__stretch btn__close">
         Usuarios
-    </button>
-    <button class="btn btn--grey btn__transition text--Komika box__stretch btn__close">
+    </a>
+    <a class="btn btn--grey btn__transition text--Komika box__stretch btn__close">
         Comics
-    </button>
-    <button class="btn btn--red btn__transition text--Komika box__stretch btn__close">Salir
-    </button>
+    </a>
+    <a class="btn btn--red btn__transition text--Komika box__stretch btn__close">Salir
+    </a>
 @endsection
 
 
@@ -21,8 +21,9 @@
   @include('users.edit')
   @include('layouts._partials.mainusers')
 </main>
-<script type="text/javascript" src="js/modules/aside.js"></script>
 @endsection
+
+@section('footerclass','footer--down')
 
 <!--Sección de Laravel. insertamos un texto en el footer-->
 @section('footer')
@@ -34,4 +35,5 @@
 
 @section('scripts')
     <script src="{{asset('js/modules/aside.js')}}"></script>
+    <script src="{{asset('js/modules/users.js')}}"></script>
 @endsection

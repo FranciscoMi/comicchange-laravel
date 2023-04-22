@@ -6,30 +6,30 @@
   //Propiedades
   let boxAccess;
   const btnClose=document.querySelectorAll('.btn__close');
+  const footer = document.querySelector('.footer');
+  const hiddenLayer=document.querySelector('#hiddenLayer');
+//método para mostrar el pie de página al desplazar el ratón
+    document.addEventListener('mousemove', ()=>{
+        footer.classList.add('visible');
+        setTimeout(()=>footer.classList.remove('visible'),5000);
+    });
 
-  //Método para cambiar entre login y register
-  btnClose.forEach((btn)=>{
-  btn.addEventListener("click",(e)=>{
+//Método para cerrar la ventana con el logotipo X
+btnClose.forEach((btn)=>{
+    btn.addEventListener("click",(e)=>{
+    //Accedemos al primer section padre
+    boxAccess=e.target.closest('section');
 
-  //comprobamos que el valor seleccionado no sea nulo
-  if (e.target.lastElementChild==null){
-    //Si es nulo es porque hemos hecho clic en un enlace directo
-    const word=e.target.href.split('#');
-    document.getElementById(word[2]).classList.add('hidden');
-    boxAccess=document.getElementById(word[1]);
-  }else{
-    boxAccess=document.getElementById(e.target.lastElementChild.value);
-  }//fin if
-
-  //Ocultamos o añadimos el banner seleccionado
-  if (boxAccess.classList.contains('hidden')){
-    boxAccess.classList.remove('hidden');
-  }else{
-    boxAccess.classList.add('hidden');
-  }//find if
-
-  })//find clic btnAccess
-  })//fin forEach
+    //Ocultamos o añadimos el banner seleccionado
+    if (boxAccess.classList.contains('hidden')){
+      boxAccess.classList.remove('hidden');
+      hiddenLayer.classList.remove('hidden');
+    }else{
+      boxAccess.classList.add('hidden');
+      hiddenLayer.classList.add('hidden');
+    }//find if
+    })//find clic btnAccess
+})//fin btnClose
 
 })//fin DOMContentLoaded
 })(); //fin aside.js

@@ -101,7 +101,7 @@ form input{
 
 	/* Aparece la barra de desplazamiento vertical cuando se desborda el contenido */
 .aside__bar{
-	height: 85vh;
+	height: 100%;
 	overflow-y: auto;
 }
 
@@ -140,6 +140,13 @@ form input{
 .box__stretch{
 	align-self:stretch;
 }
+/*Centrar el texto en la caja*/
+.box__stretch::before{
+    content: '';
+    display: block;
+    margin-top: 1em;
+}
+
 
 .box__center{
 	justify-content: center;
@@ -191,6 +198,7 @@ padding: 0 5px;
 	cursor:pointer;
 }
 
+
 .btn__transition{
 	transition:all 0.5s;
 }
@@ -220,6 +228,10 @@ padding: 0 5px;
 	background-color: var(--color_red);
 }
 
+.btn--yellow{
+	background-color: var(--color_yellow);
+}
+
 .btn--search{
     height: 40px;
     left:calc(100% - 50px);
@@ -229,13 +241,10 @@ padding: 0 5px;
 }
 
 .btn--short{
-    display: block;
     border-radius: 10px;
     border: 2px solid var(--color_grey);
-    width:75px;
+    width:120px;
     margin: 0 5px;
-    padding: 0;
-    height: 25px;
 }
 /*Estilos para las cajas que contienen la información*/
 .card{
@@ -273,6 +282,11 @@ padding: 0 5px;
 	color:var(--color_red);
 }
 
+.delete-user-link{
+    border:none;
+    background-color: transparent;
+}
+
 .disabled{
     background-color: rgba(0,0,0,0.50);
     border:1 solid var(--color_grey);
@@ -284,12 +298,19 @@ padding: 0 5px;
     height: 50px;
 	padding: 10px;
 	width: 100%;
+    position:relative;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(100%);
 }
 
 .footer--down{
     bottom:0;
     position:fixed;
 }
+
+.footer.visible {
+    transform: translateY(0);
+  }
 
 .footer__black{
 	background-color: black;

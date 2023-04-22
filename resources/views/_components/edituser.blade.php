@@ -14,18 +14,13 @@
 		</p>
 		<p>
 		  <label for="role"><i class="fa-solid fa-xl fa-person-circle-check icon" style="color: #EDEE56"></i></label>
-		  <select name="role" id="inputRole" placeholder="Rol" required>
+		  <select name="idrole" id="inputRole" placeholder="Rol" required>
 			{{$roleUser}}
 		  </select>
 		</p>
 	</section>
 	<section>
-		<h2>Datos personales</h2>
-		<label class="label" for="name">Nombre</label>
-		<input type="text" name="name" id="inputName"placeholder="Nombre">
-		<label class="label" for="surname">Apellidos</label>
-		<input type="text" name="surname" id="inputSurname"placeholder="Apellidos">
-		<p class="box box--wrap box--column box__padding">
+        <p class="box box--wrap box--column box__padding">
 			<label for="age" class="box box--column__child">Edad</label>
 			<label for="gender" class="box box--column__child">Género</label>
 			<input type="number" class="input__short box box--column__child" name="age" min="3" max="100" id="inputAge" step="1" value="13">
@@ -43,7 +38,7 @@
 		<input type="text" name="cp" id="inputCP"placeholder="Código Postal">
 		<p>
 		  {{$btncreateuser}}
-          <input type="reset" class="btn btn--red text--center btn--box" value="Resetea" id="btnReset">
+          <input type="reset" class="btn btn--red text--center btn--box btn--short" value="Resetea" id="btnReset">
 		</p>
 	</section>
 	</form>

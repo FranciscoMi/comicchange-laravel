@@ -1,6 +1,6 @@
 <nav class="box">
 	<div>
-        <img class="logo" src="{{asset('assets/icons/Logo.svg')}}" alt="icon">
+        <a class="link" href="{{route('index')}}"><img class="logo" src="{{asset('assets/icons/Logo.svg')}}" alt="icon"></a>
     </div>
     <div>
         <h1 class="title title--white title--komika text--center"> @yield('section_title')</h1>

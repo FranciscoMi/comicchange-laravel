@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -20,6 +19,18 @@ class UserController extends Controller
 		return view('users.register');
 	}//end create
 
+//Función que elimina los datos del usuario seleccionado
+    public function destroy(User $user){
+        $user->delete();
+        return back()->with('success', 'El usuario se ha eliminado correctamente');
+    }
+
+//Función que controla la vista de edición los datos del usuario
+	public function edit(User $user){
+		$users = User::all();
+		return view('users.index',compact('users','user'));
+  }
+
 	//Función que controla el acceso del usuario
 	public function login(){
 		return view('users.login');
@@ -27,24 +38,25 @@ class UserController extends Controller
 
   //Función que almacena los datos de los usuarios
   public function store(Request $request){
-    //Almacenamos los datos del usuario en una nueva variable
-    User::create([
-      'idrole'=>'3',
-      'name'=> $request->name,
-      'email'=>$request->email,
-      'password'=>Hash::make($request->password)
-    ]);
+	//Almacenamos los datos del usuario en una nueva variable
+	User::create([
+	  'idrole'=>'3',
+	  'name'=> $request->name,
+	  'email'=>$request->email,
+	  'password'=>Hash::make($request->password)
+	]);
 
-    // Almacenar mensaje de éxito
-    Session::flash('success', 'El usuario se ha creado correctamente');
-
-    //redirijo al usuario a la página de donde partió
-    return back();
+	  //redirijo al usuario a la página de donde partió con un mensaje de éxito
+	  return back()->with('success', 'El usuario se ha creado correctamente');
 	}//end store
 
-    //Función que controla la vista de edición los datos del usuario
-    public function edit(User $user){
-      $users = User::all();
-      return view('users.index',compact('users','user'));
-    }
+	public function update(Request $request, User $user){
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->idrole = $request->input('idrole');
+        $user->save();
+
+      return back()->with('success', 'El usuario se ha actualizado correctamente');
+	}//end update
+
 }
