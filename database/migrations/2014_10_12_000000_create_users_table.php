@@ -20,11 +20,6 @@ return new class extends Migration
             $table->unsignedBigInteger('idrole');
             $table->rememberToken();
             $table->timestamps();
-
-            //CLaves foraneas
-            $table->foreign('idrole')
-                ->references('id')
-                ->on('roles');
         });
     }
 

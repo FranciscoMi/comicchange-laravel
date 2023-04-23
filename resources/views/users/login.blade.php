@@ -29,16 +29,15 @@
 	<p class="box__padding">
 	<a id="loginToRegister" class="text--Komika text--center link btn__close" href="{{route('user.create')}}">¿No tienes cuenta?. Regístrate</a>
 	</p>
-
+    @include('layouts._partials.messages')
+	@if(session()->has('failed'))
+		<div class="text--Komika text--center">{{ session()->get('failed') }}</div>
+	@endif
 	@endslot
 	@slot('register_alias','')
 		@section('btnlogin')
 			<input class="btn btn--green btn--box" type="submit" value="Entrar">
 		@endsection
-
-	@if(session()->has('failed'))
-		<div class="text--Komika text--center">{{ session()->get('failed') }}</div>
-	@endif
 @endcomponent
 
 </main>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller{
 
-  public function createUser(UserRequest $request)
+  public function createUser(CreateUserRequest $request)
   {
   //Creamos un objeto usuario para comparar y hacer login
   $user=User::create([

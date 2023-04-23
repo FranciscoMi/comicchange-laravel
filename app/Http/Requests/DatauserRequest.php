@@ -3,15 +3,16 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
-class CreateUserRequest extends FormRequest
+class DatauserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return Auth::user()->idrole == 1;
     }
 
     /**
@@ -22,11 +23,7 @@ class CreateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-        //Solicitamos campos de acceso
-        'name' => 'required|string|max:15|min:4',
-        'email' => 'required|string|email|max:255|unique:users,email',
-        'password' => 'required|string|min:4|same:password_confirmation',
-        'idrole' => 'required'
+            //
         ];
     }
 }

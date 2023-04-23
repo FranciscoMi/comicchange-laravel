@@ -44,7 +44,7 @@
   <p>
     <a id="registerToLogin" class="text--Komika text--center link btn__close" href="{{route('user.login')}}">¿Ya tienes cuenta?. Inicia sesión</a>
   </p>
-
+  @include('layouts._partials.messages')
   @endslot
 
 @endcomponent

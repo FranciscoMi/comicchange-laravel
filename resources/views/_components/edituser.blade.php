@@ -5,22 +5,24 @@
 		  <label for="name">
             <i class="fa-solid fa-user fa-xl icon" style="color: #EDEE56;"></i>
             <input type="text" name="name" id="inputAlias" placeholder="Alias" value="{{$nameUser}}"></label>
+            @error('name')
+                <p class="text-cite">{{$message}}</p>
+            @enderror
 		</p>
 		<p>
 		  <label for="email" class="fa-sharp fa-solid fa-envelope fa-xl icon" style="color: #EDEE56;"></label>
-      <input type="text" name="email" id="email" placeholder="email" {{$readOnly}} required value="{{$emailUser}}">
-      @error('email')
-        <p class="text-cite">{{$message}}</p>
-      @enderror
-		</p>
-		<p>
-		  <label for="newpassword" class="fa-solid fa-lock fa-xl icon btn" style="color: #EDEE56;"></label>
-		  <input class="input__long disabled" type="password" name="password" id="newpassword" placeholder="Cambiar el password" readonly><br>
-		  <input class="input__long input__down" type="hidden" name="password_confirmation" id="password" placeholder="Repite el password" disabled required>
-        @error('password')
-          <p class="text-cite">{{$message}}</p>
+        <input type="text" name="email" id="email" placeholder="email" {{$readOnly}} required value="{{$emailUser}}">
+        @error('email')
+            <p class="text-cite">{{$message}}</p>
         @enderror
 		</p>
+
+          <p>{{$userPassword}}
+            @error('password')
+          <p class="text-cite">{{$message}}</p>
+            @enderror
+            </p>
+
 		<p>
 		  <label for="role"><i class="fa-solid fa-xl fa-person-circle-check icon" style="color: #EDEE56"></i></label>
 		  <select name="idrole" id="inputRole" placeholder="Rol" required>

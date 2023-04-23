@@ -15,6 +15,11 @@
   @slot('nameUser',"")
   @slot('emailUser',"")
   @slot('readOnly',"")
+  @slot('userPassword')
+    <label for="newpassword" class="fa-solid fa-lock fa-xl icon btn" style="color: #EDEE56;"></label>
+    <input class="input__long disabled" type="password" name="password" id="newpassword" placeholder="Password" required><br>
+    <input class="input__long input__down" type="password" name="password_confirmation" id="password" placeholder="Repite el password" required>
+  @endslot
 
   @slot('roleUser')
     <option value="1">Administrador</option>
@@ -40,6 +45,11 @@
   @slot('nameUser',$user->name)
   @slot('emailUser',$user->email)
   @slot('readOnly',"readonly")
+  @slot('userPassword')
+    <label for="newpassword" class="fa-solid fa-lock fa-xl icon btn" style="color: #EDEE56;"></label>
+    <input class="input__long disabled" type="password" name="password" id="newpassword" placeholder="Password" readonly><br>
+    <input class="input__long input__down" type="hidden" name="password_confirmation" id="password" placeholder="Repite el password" disabled required>
+  @endslot
 
   @slot('roleUser')
   <option value="1">Administrador</option>

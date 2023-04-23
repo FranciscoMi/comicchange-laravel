@@ -22,12 +22,6 @@ return new class extends Migration
             $table->binary('img')->nullable();
             $table->timestamps();
 
-            //Claves foraneas
-            $table->foreign('iddatauser')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
         });
     }
 

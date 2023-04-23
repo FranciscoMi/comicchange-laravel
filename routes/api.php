@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DatauserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,8 @@ use App\Http\Controllers\AuthController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
+//Ruta para modificar los datos de los usuarios a través de una API-REST
+Route::resource('/datauser',DatauserController::class);
 
 //Rutas para login y access
 //Acceso al panel de creación de usuarios

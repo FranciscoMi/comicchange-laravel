@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateUserRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -21,10 +22,10 @@ class UserController extends Controller
 	}//end create
 
 //Función que elimina los datos del usuario seleccionado
-    public function destroy(User $user){
-        $user->delete();
-        return back()->with('success', 'El usuario se ha eliminado correctamente');
-    }
+	public function destroy(User $user){
+		$user->delete();
+		return back()->with('success', 'El usuario se ha eliminado correctamente');
+	}
 
 //Función que controla la vista de edición los datos del usuario
 	public function edit(User $user){
@@ -38,9 +39,8 @@ class UserController extends Controller
 	}//end login
 
   //Función que almacena los datos de los usuarios
-  public function store(UserRequest $request){
-	/*dd($request->all());*/
-    //Almacenamos los datos del usuario en una nueva variable
+  public function store(CreateUserRequest $request){
+	//Almacenamos los datos del usuario en una nueva variable
 	User::create([
 	  'idrole'=>'3',
 	  'name'=> $request->name,
@@ -54,15 +54,15 @@ class UserController extends Controller
 
 	public function update(UserRequest $request, User $user){
 
-        $user->name = $request->input('name');
-        $user->idrole = $request->input('idrole');
-        if ($request->input('password')!=null){
-            $user->password = Hash::make($request->input('password'));
-        }else{
-            $user->password =$user->password;
-        };
-        $user->save();
-      return back()->with('success', 'El usuario se ha actualizado correctamente');
+		$user->name = $request->input('name');
+		$user->idrole = $request->input('idrole');
+		if ($request->input('password')!=null){
+			$user->password = Hash::make($request->input('password'));
+		}else{
+			$user->password =$user->password;
+		};
+		$user->save();
+	  return back()->with('success', 'El usuario se ha actualizado correctamente');
 	}//end update
 
 }

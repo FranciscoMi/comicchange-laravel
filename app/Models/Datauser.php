@@ -9,7 +9,13 @@ class Datauser extends Model
 {
     use HasFactory;
 
-    /**
+    //-------------Relaciones----------------
+    public function user()
+    {
+        return $this->belongsTo(User::class); //Relación (1:1)
+    }
+    //-----------Fin Relaciones--------------
+     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>

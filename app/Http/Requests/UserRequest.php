@@ -24,7 +24,7 @@ class UserRequest extends FormRequest
     return [
       'name' => 'required|string|max:15|min:4',
       'email' => 'required|string|email|max:255',
-      'password' => 'nullable|string|min:4|same:password_confirmation',
+      'password' => 'nullable|string|min:4',
       'idrole' => 'required'
     ];
   }
