@@ -16,13 +16,11 @@
             <p class="text-cite">{{$message}}</p>
         @enderror
 		</p>
-
           <p>{{$userPassword}}
             @error('password')
-          <p class="text-cite">{{$message}}</p>
+                <p class="text-cite">{{$message}}</p>
             @enderror
-            </p>
-
+          </p>
 		<p>
 		  <label for="role"><i class="fa-solid fa-xl fa-person-circle-check icon" style="color: #EDEE56"></i></label>
 		  <select name="idrole" id="inputRole" placeholder="Rol" required>

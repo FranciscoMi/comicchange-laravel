@@ -26,7 +26,7 @@ class CreateUserRequest extends FormRequest
         'name' => 'required|string|max:15|min:4',
         'email' => 'required|string|email|max:255|unique:users,email',
         'password' => 'required|string|min:4|same:password_confirmation',
-        'idrole' => 'required'
+        'idrole' => 'nullable'
         ];
     }
 }

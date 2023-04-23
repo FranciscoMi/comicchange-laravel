@@ -14,7 +14,8 @@
 <main class="main-screen main--center">
 
 @section('formaction')
-  <form name="formregister" action="{{route('user.createAuth')}}" id="formRegister" method="POST" >
+  <form name="formregister" action="{{route('user.store')}}" id="formRegister" method="POST" >
+    @csrf
 @endsection
 
 <!--Incluimos el enlace de la carpeta _components a la caja de login cuando se pulse el votón "Asociarse"-->
@@ -26,7 +27,7 @@
   @slot('idform','formRegister')
   @slot('register_alias')
   <p>
-    <label for="password"><i class="fa-solid fa-unlock-keyhole fa-xl icon" style="color: #EDEE56;"> </i></label>
+    <label for="password_confirmation"><i class="fa-solid fa-unlock-keyhole fa-xl icon" style="color: #EDEE56;"> </i></label>
     <input type="password" name="password_confirmation" id="repeatPassword" placeholder="Repetir contraseña" required>
   </p>
 
@@ -44,7 +45,6 @@
   <p>
     <a id="registerToLogin" class="text--Komika text--center link btn__close" href="{{route('user.login')}}">¿Ya tienes cuenta?. Inicia sesión</a>
   </p>
-  @include('layouts._partials.messages')
   @endslot
 
 @endcomponent

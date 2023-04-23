@@ -15,6 +15,7 @@
 
 @section('formaction')
 	<form name="formlogin" action="{{route('user.loginAuth')}}" id="formLogin" method="POST">
+        @csrf
 @endsection
 
 
@@ -29,10 +30,6 @@
 	<p class="box__padding">
 	<a id="loginToRegister" class="text--Komika text--center link btn__close" href="{{route('user.create')}}">¿No tienes cuenta?. Regístrate</a>
 	</p>
-    @include('layouts._partials.messages')
-	@if(session()->has('failed'))
-		<div class="text--Komika text--center">{{ session()->get('failed') }}</div>
-	@endif
 	@endslot
 	@slot('register_alias','')
 		@section('btnlogin')

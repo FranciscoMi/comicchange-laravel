@@ -28,12 +28,12 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsTo(Role::class); //Relación (N:1)(n,1)
+        return $this->belongsTo(Role::class, 'idrole'); //Relación (N:1)(n,1)
     }
 
     public function datauser()
     {
-        return $this->hasOne(Datauser::class); //Relación (1:1)
+        return $this->hasOne(Datauser::class,'user_id')->withDefault(); //Relación (1:1)
     }
     //-----------------Fin Relaciones-----------
 

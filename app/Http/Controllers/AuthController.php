@@ -14,12 +14,13 @@ class AuthController extends Controller{
 
   public function createUser(CreateUserRequest $request)
   {
+
   //Creamos un objeto usuario para comparar y hacer login
-  $user=User::create([
+  User::create([
+    'idrole'=>'3',
     'name'=>$request->name,
     'email'=>$request->email,
-    'password'=>Hash::make($request->password),
-    'idrole'=>'3'
+    'password'=>Hash::make($request->password)
   ]);
 
   //En caso de que el usuario sea correcto, lanzamos un mensaje y creamos un token de sesión

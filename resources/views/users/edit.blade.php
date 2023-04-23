@@ -22,10 +22,9 @@
   @endslot
 
   @slot('roleUser')
-    <option value="1">Administrador</option>
-    <option value="2">Colaborador</option>
-    <option selected value="3" >Coleccionista</option>
-    <option value="4">Invitado</option>
+  @foreach($roles as $role)
+  <option value="{{ $role->id }}" {{ $role->id=='3' ? 'selected' : '' }}>{{ $role->role }}</option>
+  @endforeach
   @endslot
 
   @slot ('btncreateuser')
@@ -52,10 +51,10 @@
   @endslot
 
   @slot('roleUser')
-  <option value="1">Administrador</option>
-  <option value="2">Colaborador</option>
-  <option selected value="3" >Coleccionista</option>
-  <option value="4">Invitado</option>
+  <!--Establecemos con un operador ternario los roles del sistema y establecemos el que corresponde al usuario-->
+    @foreach($roles as $role)
+        <option value="{{ $role->id }}" {{ $user->idrole == $role->id ? 'selected' : '' }}>{{ $role->role }}</option>
+    @endforeach
   @endslot
 
   @slot ('btncreateuser')

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('datausers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('iddatauser');
+            $table->unsignedBigInteger('user_id');
             $table->tinyInteger('age')->nullable();
             $table->string('city', 50)->nullable();
             $table->string('country', 20)->nullable();

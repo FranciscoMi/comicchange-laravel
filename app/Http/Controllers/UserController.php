@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateUserRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserRequest;
 
@@ -13,7 +14,8 @@ class UserController extends Controller
 {
 	public function index(){
 		$users = User::all();
-		return view('users.index',compact('users'));
+        $roles = Role::all();
+		return view('users.index',compact('users','roles'));
 	}//end index
 
 	//Función que controla la vista de creación
@@ -30,7 +32,8 @@ class UserController extends Controller
 //Función que controla la vista de edición los datos del usuario
 	public function edit(User $user){
 		$users = User::all();
-		return view('users.index',compact('users','user'));
+        $roles = Role::all();
+		return view('users.index',compact('users','user','roles'));
   }
 
 	//Función que controla el acceso del usuario
@@ -41,7 +44,7 @@ class UserController extends Controller
   //Función que almacena los datos de los usuarios
   public function store(CreateUserRequest $request){
 	//Almacenamos los datos del usuario en una nueva variable
-	User::create([
+    User::create([
 	  'idrole'=>'3',
 	  'name'=> $request->name,
 	  'email'=>$request->email,
