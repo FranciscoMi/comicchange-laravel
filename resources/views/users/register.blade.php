@@ -5,8 +5,8 @@
 
 <!--Muestra los botones de registro en el navegador-->
 @section('register')
-	@include('layouts._partials.btnhome')
-	@include('layouts._partials.btnlogin')
+  @include('layouts._partials.btnhome')
+  @include('layouts._partials.btnlogin')
 @endsection
 
 
@@ -14,39 +14,41 @@
 <main class="main-screen main--center">
 
 @section('formaction')
-    <form name="formregister" action="{{route('user.createAuth')}}" id="formRegister" method="POST" >
+  <form name="formregister" action="{{route('user.createAuth')}}" id="formRegister" method="POST" >
 @endsection
 
 <!--Incluimos el enlace de la carpeta _components a la caja de login cuando se pulse el votón "Asociarse"-->
 @component('_components.login')
-	@slot('box_login','boxRegister')
-	@slot('image', '../assets/img/html/superheroes.png')
-	@slot('accreditation_heading','Registro en la Bóveda')
-	@slot('accreditation_title','Inscripción')
-	@slot('idform','formRegister')
-	@slot('register_alias')
-	<p>
-		<label for="password"><i class="fa-solid fa-unlock-keyhole fa-xl icon" style="color: #EDEE56;"> </i></label>
-		<input type="password" name="repeat_password" id="repeatPassword" placeholder="Repetir contraseña" required>
-	</p>
-	<p>
-		<label for="name"><i class="fa-solid fa-user fa-xl icon" style="color: #EDEE56;"></i></label>
-		<input type="text" name="name" id="inputAlias" placeholder="Alias" required>
-	</p>
-	@endslot
-    @section('btnlogin')
-        <input class="btn btn--green btn--box" type="submit" value="Registro">
-    @endsection
+  @slot('box_login','boxRegister')
+  @slot('image', '../assets/img/html/superheroes.png')
+  @slot('accreditation_heading','Registro en la Bóveda')
+  @slot('accreditation_title','Inscripción')
+  @slot('idform','formRegister')
+  @slot('register_alias')
+  <p>
+    <label for="password"><i class="fa-solid fa-unlock-keyhole fa-xl icon" style="color: #EDEE56;"> </i></label>
+    <input type="password" name="password_confirmation" id="repeatPassword" placeholder="Repetir contraseña" required>
+    @error('password')
+      <p class="text-cite color--red">{{$message}}</p>
+    @enderror
+  </p>
 
-    @if(session()->has('success'))
-        <div class="alert alert-success text--Komika text--center">{{session()->get('success') }}</div>
-    @endif
+  <p>
+    <label for="name"><i class="fa-solid fa-user fa-xl icon" style="color: #EDEE56;"></i></label>
+    <input type="text" name="name" id="inputAlias" placeholder="Alias" required>
+  </p>
+  @endslot
+  @section('btnlogin')
+    <input class="btn btn--green btn--box" type="submit" value="Registro">
+  @endsection
 
-	@slot('accreditation_forgot')
-	<p>
-		<a id="registerToLogin" class="text--Komika text--center link btn__close" href="{{route('user.login')}}">¿Ya tienes cuenta?. Inicia sesión</a>
-	</p>
-	@endslot
+
+  @slot('accreditation_forgot')
+  <p>
+    <a id="registerToLogin" class="text--Komika text--center link btn__close" href="{{route('user.login')}}">¿Ya tienes cuenta?. Inicia sesión</a>
+  </p>
+
+  @endslot
 
 @endcomponent
 </main>
@@ -55,8 +57,8 @@
 @section('footer')
 @section('footerclass','footer--down')
 <div class="text-cite">
-	<span>&copy; Todos los derechos reservados. Menos los que no son de otros, claro. ---</span>
-	<span> Proyecto "ComicChange" para Ilerna.</span>
+  <span>&copy; Todos los derechos reservados. Menos los que no son de otros, claro. ---</span>
+  <span> Proyecto "ComicChange" para Ilerna.</span>
 </div>
 @endsection
 

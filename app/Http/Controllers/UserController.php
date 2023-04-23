@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -37,8 +38,9 @@ class UserController extends Controller
 	}//end login
 
   //Función que almacena los datos de los usuarios
-  public function store(Request $request){
-	//Almacenamos los datos del usuario en una nueva variable
+  public function store(UserRequest $request){
+	/*dd($request->all());*/
+    //Almacenamos los datos del usuario en una nueva variable
 	User::create([
 	  'idrole'=>'3',
 	  'name'=> $request->name,
@@ -50,12 +52,17 @@ class UserController extends Controller
 	  return back()->with('success', 'El usuario se ha creado correctamente');
 	}//end store
 
-	public function update(Request $request, User $user){
+	public function update(UserRequest $request, User $user){
+
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->idrole = $request->input('idrole');
+        if ($request->input('password')!=null){
+            $user->password = Hash::make($request->input('password'));
+        }else{
+            $user->password =$user->password;
+        };
         $user->save();
-
       return back()->with('success', 'El usuario se ha actualizado correctamente');
 	}//end update
 

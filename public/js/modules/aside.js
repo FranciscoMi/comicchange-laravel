@@ -9,7 +9,6 @@ const btnHide=document.querySelector('#btnHide');
 const aside=document.querySelector('#main');
 const enabledPassword=document.querySelector('#newpassword');
 const inputPassword=document.querySelector('#password');
-
 //-----Métodos------
 
 //Método para ocultar o mostrar la ventana lateral
@@ -25,7 +24,7 @@ btnHide.addEventListener("click",()=>{
 
 //Método para deshabilitar la casilla de cambiar de password
   enabledPassword.addEventListener("click",(e)=>{
-  if (e.target.classList.contains('disabled')){
+    if (e.target.classList.contains('disabled')){
     enabledPassword.labels[0].classList.remove('fa-lock');
     enabledPassword.labels[0].classList.add('fa-unlock-keyhole');
     e.target.classList.remove('disabled');

@@ -42,7 +42,7 @@
   @slot('roleUser')
   <option value="1">Administrador</option>
   <option value="2">Colaborador</option>
-  <option value selected="3" >Coleccionista</option>
+  <option selected value="3" >Coleccionista</option>
   <option value="4">Invitado</option>
   @endslot
 
@@ -51,6 +51,7 @@
   @endslot
 
   @endcomponent
+
 @endif
 
 @endsection

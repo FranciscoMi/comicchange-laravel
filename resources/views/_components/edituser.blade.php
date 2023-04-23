@@ -2,21 +2,33 @@
 	{{$formUser}}
 	<section>
 		<p>
-		  <label for="name"><i class="fa-solid fa-user fa-xl icon" style="color: #EDEE56;"></i><input type="text" name="name" id="inputAlias" placeholder="Alias" value="{{$nameUser}}"></label>
+		  <label for="name">
+            <i class="fa-solid fa-user fa-xl icon" style="color: #EDEE56;"></i>
+            <input type="text" name="name" id="inputAlias" placeholder="Alias" value="{{$nameUser}}"></label>
 		</p>
 		<p>
-		  <label for="email" class="fa-sharp fa-solid fa-envelope fa-xl icon" style="color: #EDEE56;"></label><input type="text" name="email" id="email" placeholder="email" required value="{{$emailUser}}">
+		  <label for="email" class="fa-sharp fa-solid fa-envelope fa-xl icon" style="color: #EDEE56;"></label>
+      <input type="text" name="email" id="email" placeholder="email" required value="{{$emailUser}}">
+      @error('email')
+        <p class="text-cite color--red">{{$error}}</p>
+      @enderror
 		</p>
 		<p>
 		  <label for="newpassword" class="fa-solid fa-lock fa-xl icon btn" style="color: #EDEE56;"></label>
-		  <input class="input__long disabled" type="password" name="newpassword" id="newpassword" placeholder="Cambiar el password" readonly><br>
-		  <input class="input__long input__down" type="hidden" name="password" id="password" placeholder="Repite el password" disabled required>
+		  <input class="input__long disabled" type="password" name="password" id="newpassword" placeholder="Cambiar el password" readonly><br>
+		  <input class="input__long input__down" type="hidden" name="password_confirmation" id="password" placeholder="Repite el password" disabled required>
+        @error('password')
+          <p class="text-cite color--red">{{$error}}</p>
+        @enderror
 		</p>
 		<p>
 		  <label for="role"><i class="fa-solid fa-xl fa-person-circle-check icon" style="color: #EDEE56"></i></label>
 		  <select name="idrole" id="inputRole" placeholder="Rol" required>
 			{{$roleUser}}
 		  </select>
+      @error('idrole')
+        <p class="text-cite color--red">{{$error}}</p>
+      @enderror
 		</p>
 	</section>
 	<section>
