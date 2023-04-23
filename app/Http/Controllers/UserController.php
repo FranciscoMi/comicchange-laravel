@@ -55,7 +55,6 @@ class UserController extends Controller
 	public function update(UserRequest $request, User $user){
 
         $user->name = $request->input('name');
-        $user->email = $request->input('email');
         $user->idrole = $request->input('idrole');
         if ($request->input('password')!=null){
             $user->password = Hash::make($request->input('password'));

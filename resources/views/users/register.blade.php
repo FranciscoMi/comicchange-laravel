@@ -28,9 +28,6 @@
   <p>
     <label for="password"><i class="fa-solid fa-unlock-keyhole fa-xl icon" style="color: #EDEE56;"> </i></label>
     <input type="password" name="password_confirmation" id="repeatPassword" placeholder="Repetir contraseña" required>
-    @error('password')
-      <p class="text-cite color--red">{{$message}}</p>
-    @enderror
   </p>
 
   <p>

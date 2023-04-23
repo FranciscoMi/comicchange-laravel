@@ -14,6 +14,7 @@
 
   @slot('nameUser',"")
   @slot('emailUser',"")
+  @slot('readOnly',"")
 
   @slot('roleUser')
     <option value="1">Administrador</option>
@@ -38,6 +39,7 @@
 
   @slot('nameUser',$user->name)
   @slot('emailUser',$user->email)
+  @slot('readOnly',"readonly")
 
   @slot('roleUser')
   <option value="1">Administrador</option>

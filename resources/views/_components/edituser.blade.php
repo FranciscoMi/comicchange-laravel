@@ -8,9 +8,9 @@
 		</p>
 		<p>
 		  <label for="email" class="fa-sharp fa-solid fa-envelope fa-xl icon" style="color: #EDEE56;"></label>
-      <input type="text" name="email" id="email" placeholder="email" required value="{{$emailUser}}">
+      <input type="text" name="email" id="email" placeholder="email" {{$readOnly}} required value="{{$emailUser}}">
       @error('email')
-        <p class="text-cite color--red">{{$error}}</p>
+        <p class="text-cite">{{$message}}</p>
       @enderror
 		</p>
 		<p>
@@ -18,7 +18,7 @@
 		  <input class="input__long disabled" type="password" name="password" id="newpassword" placeholder="Cambiar el password" readonly><br>
 		  <input class="input__long input__down" type="hidden" name="password_confirmation" id="password" placeholder="Repite el password" disabled required>
         @error('password')
-          <p class="text-cite color--red">{{$error}}</p>
+          <p class="text-cite">{{$message}}</p>
         @enderror
 		</p>
 		<p>
@@ -27,7 +27,7 @@
 			{{$roleUser}}
 		  </select>
       @error('idrole')
-        <p class="text-cite color--red">{{$error}}</p>
+        <p class="text-cite">{{$message}}</p>
       @enderror
 		</p>
 	</section>

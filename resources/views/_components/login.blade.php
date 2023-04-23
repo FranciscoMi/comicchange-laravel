@@ -22,13 +22,16 @@
         <input type="text" name="email" id="inputMail" placeholder="email" required>
       </p>
       @error('email')
-        <p class="text-cite color--red">{{$error}}</p>
+        <p class="text-cite color--red">{{$message}}</p>
       @enderror
       <p>
         <label for="password"><i class="fa-solid fa-unlock-keyhole fa-xl icon" style="color: #EDEE56;"> </i></label>
         <input type="password" name="password" id="inputPassword" placeholder="Contraseña" required>
       </p>
       {{$register_alias}}
+      @error('password')
+        <p class="text-cite color--red">{{$message}}</p>
+        @enderror
       <div class="box">
         @yield('btnlogin')
         <input class="btn btn--red btn--box" type="reset" value="Borrar">
