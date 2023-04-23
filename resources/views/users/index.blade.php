@@ -17,6 +17,8 @@
 
 
 @section('main')
+<div id="hiddenLayer" class="hidden"></div>
+@include('layouts._partials.boxdelete')
 <main class="aside__hide box box__stretch" id="main">
   @include('users.edit')
   @include('layouts._partials.mainusers')

@@ -22,10 +22,11 @@ class CreateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //Solicitamos campos de acceso
-            'name'=>'required',
-            'email' =>'required|email|unique:users,email',
-            'password' =>'required'
+        //Solicitamos campos de acceso
+        'name' => 'required|string|max:15|min:4',
+        'email' => 'required|string|email|max:255',
+        'password' => 'nullable|string|min:4|same:password_confirmation',
+        'idrole' => 'required'
         ];
     }
 }

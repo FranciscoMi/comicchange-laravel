@@ -31,7 +31,7 @@
   </header>
 
 <!--plantilla main-->
-  <div id="hiddenLayer" class="hidden"></div>
+
   @yield('main')
 
   <!--Sección donde se incluye el pie de pagina-->

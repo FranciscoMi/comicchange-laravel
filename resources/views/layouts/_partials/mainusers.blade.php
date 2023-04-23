@@ -1,4 +1,3 @@
-@include('layouts._partials.boxdelete')
 
 <form name="form_users" id="formAccessUsers" action="" method="GET" class="main-screen margin-top__50">
 <section>

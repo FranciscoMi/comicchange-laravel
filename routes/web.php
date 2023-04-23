@@ -22,12 +22,12 @@ Route::view('/','index')->name('index');
 Route::get('/users',[UserController::class, 'index'])->name('user.index');
 
 /*Ruta del controlador para crear usuarios*/
-Route::get('/users/create',[userController::class, 'create'])->name('user.create');
+Route::get('/users/create',[UserController::class, 'create'])->name('user.create');
 
 Route::delete('/users/destroy/{user}',[UserController::class, 'destroy'])->name('user.destroy');
 
 /*Acceso usuarios*/
-Route::get('/users/login',[userController::class, 'login'])->name('user.login');
+Route::get('/users/login',[UserController::class, 'login'])->name('user.login');
 
 /*Ruta al controlador para editar un usuario*/
 Route::get('/users/{user}/edit',[UserController::class,'edit'])->name('user.edit');

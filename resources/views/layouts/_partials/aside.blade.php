@@ -5,3 +5,4 @@
 </section>
   @yield('lateral_menu')
 </aside>
+

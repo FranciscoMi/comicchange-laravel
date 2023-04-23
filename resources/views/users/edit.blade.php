@@ -47,7 +47,7 @@
   @endslot
 
   @slot ('btncreateuser')
-  <input type="submit" class="btn btn--green text--center btn--box btn--short" value="Actualiza">
+    <input type="submit" class="btn btn--green text--center btn--box btn--short" value="Actualiza">
   @endslot
 
   @endcomponent
