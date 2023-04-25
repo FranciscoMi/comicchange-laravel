@@ -33,10 +33,9 @@ class UserController extends Controller
 
 //Función que controla la vista de edición los datos del usuario
 	public function edit(User $user){
-		$users = User::all();
         $roles = Role::all();
         $userResource=UserResource::collection(User::all());
-		return view('users.index',compact('users','user','roles','UserResource'));
+		return view('users.index',compact('user','roles','userResource'));
   }
 
 	//Función que controla el acceso del usuario

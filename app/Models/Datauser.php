@@ -42,7 +42,7 @@ class Datauser extends Model
      *
      * @var array<string, string>
      */
-    protected $casts = [
+    /*protected $casts = [
         'age' => 'tinyInt'
-    ];
+    ];*/
 }

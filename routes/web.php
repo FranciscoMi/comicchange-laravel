@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ use App\Http\Controllers\UserController;
 Route::view('/','index')->name('index');
 
 /* Mostrar los datos del usuario en su index*/
-Route::get('/users',[UserController::class, 'index'])->name('user.index');
+Route::get('/users',[AuthController::class, 'index'])->name('user.index');
 
 /*Ruta del controlador para crear usuarios*/
 Route::get('/users/create',[UserController::class, 'create'])->name('user.create');
