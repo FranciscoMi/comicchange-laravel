@@ -36,7 +36,7 @@
   @component('_components.edituser')
 
   @slot('formUser')
-    <form name="formuser" action="{{route('user.update',$user)}}" method="POST" id="formUser">
+    <form name="formuser" action="{{route('user.update',$userResource)}}" method="POST" id="formUser">
     @csrf
     @method('PUT')
   @endslot

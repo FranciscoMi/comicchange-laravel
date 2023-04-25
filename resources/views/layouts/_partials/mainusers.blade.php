@@ -2,7 +2,7 @@
 <form name="form_users" id="formAccessUsers" action="" method="GET" class="main-screen margin-top__50">
 <section>
 	<!--Si no hay usuarios pone un título-->
-	@if($users->isEmpty())
+	@if($userResource->isEmpty())
 	<h2 class=" title--komika title--komika__big">Esto está un poco vacio.<br>No hay usuarios</h2>
 	@else
 
@@ -42,7 +42,7 @@
 		<tr>
 			<td colspan="2"></td>
 			<td colspan="3"><hr class="line"></td></tr>
-		@foreach ($users as $newuser )
+		@foreach ($userResource as $newuser )
 		<tr class="table-row">
 			<td>
 				<form action="{{route('user.destroy',$newuser->id)}}" method=POST class="title--komika">

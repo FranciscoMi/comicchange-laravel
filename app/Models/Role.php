@@ -9,12 +9,7 @@ class Role extends Model
 {
     use HasFactory;
 
-    //Relaciones
-    public function users()
-    {
-        return $this->hasMany(User::class); //relación (N:1)(1,n)
-    }
-
+   
      /**
      * The attributes that are mass assignable.
      *
@@ -26,7 +21,9 @@ class Role extends Model
     ];
 
     protected $hidden=[
-        'id'
+        'id',
+        'created_at',
+        'updated_at'
     ];
 
 
@@ -35,4 +32,11 @@ class Role extends Model
      *
      * @var array<string, string>
      */
+
+    //----------Relaciones----------
+    public function users()
+    {
+        return $this->hasMany(User::class, 'id', 'idrole'); //relación (N:1)(1,n)
+    }
+    //-----------Fin Relaciones--------
 }

@@ -30,7 +30,10 @@ class Datauser extends Model
     ];
 
     protected $hidden=[
-        'iddatauser'
+        'user_id',
+        'id',
+        'created_at',
+        'updated_at'
     ];
 
 

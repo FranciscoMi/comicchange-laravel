@@ -9,13 +9,15 @@ use App\Models\User;
 use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserRequest;
+use App\Http\Resources\UserResource;
 
 class UserController extends Controller
 {
 	public function index(){
 		$users = User::all();
         $roles = Role::all();
-		return view('users.index',compact('users','roles'));
+        $userResource=UserResource::collection(User::all());
+		return view('users.index',compact('userResource','users','roles'));
 	}//end index
 
 	//Función que controla la vista de creación
@@ -33,7 +35,8 @@ class UserController extends Controller
 	public function edit(User $user){
 		$users = User::all();
         $roles = Role::all();
-		return view('users.index',compact('users','user','roles'));
+        $userResource=UserResource::collection(User::all());
+		return view('users.index',compact('users','user','roles','UserResource'));
   }
 
 	//Función que controla el acceso del usuario

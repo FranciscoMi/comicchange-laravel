@@ -35,11 +35,11 @@
         <p class="box box--wrap box--column box__padding">
 			<label for="age" class="box box--column__child">Edad</label>
 			<label for="gender" class="box box--column__child">Género</label>
-			<input type="number" class="input__short box box--column__child" name="age" min="3" max="100" id="inputAge" step="1" value="13">
+			<input type="number" class="input__short box box--column__child" name="age" min="3" max="100" id="inputAge" step="1">
 			<select name="gender" id=selectGender class="box box--column__child">
 			<option value="Masculino">Masculino</option>
 			<option value="Femenino">Femenino</option>
-			<option value="Prefiero no decirlo">Prefiero no decirlo</option>
+			<option value="Prefiero no decirlo" selected>Prefiero no decirlo</option>
 			</select>
 		</p>
 		<label class="label" for="city">Ciudad</label>
