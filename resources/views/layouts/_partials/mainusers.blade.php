@@ -52,7 +52,7 @@
 				</form>
 			</td>
 			<td><a href="{{route('user.edit',$newuser->id)}}"><input type="radio" name="user-radio" value="{{$newuser->id}} "class="input__short"></a></td>
-			<td>{{$newuser->role->role}}</td>
+			<td>{{$newuser->role['role']}}</td>
 			<td>{{$newuser->name}}</td>
 			<td>{{$newuser->email}}</td>
 		</tr>

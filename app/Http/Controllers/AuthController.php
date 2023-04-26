@@ -11,6 +11,7 @@ use App\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Http\Resources\UserResource;
+use App\Http\Requests\UserRequest;
 
 class AuthController extends Controller{
 
@@ -36,7 +37,6 @@ class AuthController extends Controller{
 public function edit(User $user){
     $roles = Role::all();
     $userResource=UserResource::collection(User::all());
-    //$userArray=new UserResource($user);
     return view('users.index',compact('user','roles','userResource'));
 }//end edit
 

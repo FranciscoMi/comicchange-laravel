@@ -27,6 +27,16 @@
   @endforeach
   @endslot
 
+  @slot('userAge',"")
+  @slot('selectGender')
+    <option value="Prefiero no decirlo" selected>Prefiero no decirlo</option>
+    <option value="Masculino">Masculino</option>
+    <option value="Femenino">Femenino</option>
+  @endslot
+  @slot('userCity','')
+  @slot('userCountry','')
+  @slot('userCP','')
+
   @slot ('btncreateuser')
     <input type="submit" class="btn btn--green text--center btn--box btn--short" value="Crea">
   @endslot
@@ -56,6 +66,18 @@
         <option value="{{ $role->id }}" {{ $user->idrole == $role->id ? 'selected' : '' }}>{{ $role->role }}</option>
     @endforeach
   @endslot
+
+  @slot('userAge',$user->datauser->age)
+
+  @slot('selectGender')
+    <option value="Prefiero no decirlo" {{ $user->datauser->gender == 'Prefiero no decirlo' ? 'selected' : '' }}>Prefiero no decirlo</option>
+    <option value="Masculino" {{ $user->datauser->gender == 'Masculino' ? 'selected' : '' }}>Masculino</option>
+    <option value="Femenino" {{ $user->datauser->gender == 'Femenino' ? 'selected' : '' }}>Femenino</option>
+  @endslot
+
+  @slot('userCity',$user->datauser->city)
+  @slot('userCountry',$user->datauser->country)
+  @slot('userCP',$user->datauser->cp)
 
   @slot ('btncreateuser')
     <input type="submit" class="btn btn--green text--center btn--box btn--short" value="Actualiza">

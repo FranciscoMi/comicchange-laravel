@@ -25,7 +25,14 @@ class UserRequest extends FormRequest
       'name' => 'required|string|max:15|min:4',
       'email' => 'required|string|email|max:255',
       'password' => 'nullable|string|min:4',
-      'idrole' => 'required'
+      'idrole' => 'required',
+
+      'age' => 'nullable|string|min:0|max:3',
+      'city' => 'nullable|string|max:120',
+      'country' => 'nullable|string|max:60',
+      'cp' => 'nullable|string|max:8',
+      'gender' => 'nullable|string',
+      'img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
     ];
   }
 }

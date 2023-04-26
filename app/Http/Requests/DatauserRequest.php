@@ -23,7 +23,20 @@ class DatauserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+        'age' => 'nullable|string|min:0|max:3',
+        'city' => 'nullable|string|max:120',
+        'country' => 'nullable|string|max:60',
+        'cp' => 'nullable|string|max:10',
+        'gender' => [
+            'nullable',
+            'string',
+            function ($attribute, $value, $fail) {
+                if (!in_array($value, ['Masculino', 'Femenino', 'Prefiero no decirlo'])) {
+                    $fail($attribute.' no es un valor permitido.');
+                }
+            },
+        ],
+        'img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
 }

@@ -10,6 +10,7 @@ use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserRequest;
 use App\Http\Resources\UserResource;
+use App\Models\Datauser;
 
 class UserController extends Controller
 {
@@ -33,9 +34,10 @@ class UserController extends Controller
 
 //Función que controla la vista de edición los datos del usuario
 	public function edit(User $user){
-        $roles = Role::all();
-        $userResource=UserResource::collection(User::all());
-		return view('users.index',compact('user','roles','userResource'));
+    $userId=User::find($user);
+    $roles = Role::all();
+    $userResource=UserResource::collection(User::all());
+	return view('users.index',compact('user','roles','userResource'));
   }
 
 	//Función que controla el acceso del usuario
@@ -57,8 +59,7 @@ class UserController extends Controller
 	  return back()->with('success', 'El usuario se ha creado correctamente');
 	}//end store
 
-	public function update(UserRequest $request, User $user){
-
+	/*public function update(UserRequest $request, User $user){
 		$user->name = $request->input('name');
 		$user->idrole = $request->input('idrole');
 		if ($request->input('password')!=null){
@@ -67,7 +68,32 @@ class UserController extends Controller
 			$user->password =$user->password;
 		};
 		$user->save();
+
+
+
 	  return back()->with('success', 'El usuario se ha actualizado correctamente');
-	}//end update
+	}//end update*/
+
+    public function update(UserRequest $request, User $user){
+        //Validamos los datos
+        $validatedData = $request->validated();
+        //actualizamos la tabla usuarios
+        $user->name = $validatedData['name'];
+        $user->idrole = $validatedData['idrole'];
+        if (!empty($validatedData['password'])){
+            $user->password = Hash::make($validatedData['password']);
+        }
+        $user->save();
+        //Actualizamos la tabla datos de usuarios
+        $datauser = $user->datauser;
+        $datauser->age = $validatedData['age'];
+        $datauser->city = $validatedData['city'];
+        $datauser->country = $validatedData['country'];
+        $datauser->cp = $validatedData['cp'];
+        $datauser->gender = $validatedData['gender'];
+        $datauser->save();
+
+	  return back()->with('success', 'El usuario se ha actualizado correctamente');
+	}//end update*/
 
 }

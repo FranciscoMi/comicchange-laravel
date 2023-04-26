@@ -38,5 +38,24 @@ class DatabaseSeeder extends Seeder
             'password'=>Hash::make('coworker'),
             'idrole'=>'2']
         ]);
+
+        DB::table('datausers')->insert([
+            ['user_id'=>'1',
+            'age'=>null,
+            'city'=>null,
+            'country'=>'España',
+            'cp'=>null,
+            'gender'=>'Masculino',
+            'img'=>null
+            ],
+            ['user_id'=>'2',
+            'age'=>'48',
+            'city'=>'Burgos',
+            'country'=>'España',
+            'cp'=>'09007',
+            'gender'=>'Prefiero no decirlo',
+            'img'=>null
+            ]
+        ]);
     }
 }
