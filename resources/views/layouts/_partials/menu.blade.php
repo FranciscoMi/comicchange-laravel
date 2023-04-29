@@ -1,10 +1,16 @@
+<!--Esta es la plantilla que muestra el menú principal en la zona superior-->
 <nav class="box">
-  <div id="logoindex">
+    <!--Sección del logo. Si pulsas en el te lleva a la página principal-->
+    <div id="logoindex">
     <a class="link" href="{{route('index')}}"><img class="logo" src="{{asset('assets/icons/Logo.svg')}}" alt="icon"></a>
   </div>
+
+  <!--Sección del título principal. Desaparece si la web es menor de 700px-->
   <div>
     <h1 class="title title--white title--komika text--center"> @yield('section_title')</h1>
   </div>
+
+  <!--Sección de enlaces a los sitios. Según el acceso mostrará, unos u otros botones-->
   <div class="box box__stretch">
     @if(Auth::check())
       @include('layouts._partials.btnhome')

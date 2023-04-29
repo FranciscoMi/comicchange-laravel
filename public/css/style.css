@@ -23,6 +23,7 @@
     --btnWidth:50px;
 }
 
+/*Cuerpo principal*/
 body{
 	margin:0;
 	box-sizing: border-box;
@@ -58,7 +59,7 @@ form input{
 	height:50px;
 }
 
-/*Formulario de búsqueda. Todavía por configurar*/
+/*Formulario de búsqueda.*/
 #formSearch,
 #formLogin,
 .title,
@@ -87,12 +88,12 @@ form input{
 	min-width:320px;
     width: 75vw;
 }
-
+/*Tbla de usuarios*/
 #tableUsers{
     border: 0;
 }
 
-/*Estilo del menú lateral*/
+/*Estilos del menú lateral*/
 .aside{
 	margin-top:0;
 	margin-bottom:20px;
@@ -140,6 +141,7 @@ form input{
 .box__stretch{
 	align-self:stretch;
 }
+
 /*Centrar el texto en la caja*/
 .box__stretch::before{
     content: '';
@@ -248,6 +250,7 @@ padding:0.5em 10px;
     width:120px;
     margin: 0 5px;
 }
+
 /*Estilos para las cajas que contienen la información*/
 .card{
 	width:150px;
@@ -292,6 +295,8 @@ padding:0.5em 10px;
 .btn--green{
     color:var(--text_white);
 }
+
+/*Con esta clase controlo que usuario voy a eliminar*/
 .delete-user-link{
     border:none;
     background-color: transparent;
@@ -327,6 +332,7 @@ padding:0.5em 10px;
 	color: white;
 }
 
+/*Estilos para los marcos que aparecen en cada sección independiente*/
 .framework{
 	border-radius: 5px;
 	background-color: var(--color_blue);
@@ -338,6 +344,7 @@ padding:0.5em 10px;
 	align-items: center;
 }
 
+/*Estilos para los elementos ocultos y para ocultarlos en caso de necesidad*/
 .hidden{
 	display:none;
     position:absolute;
@@ -351,6 +358,7 @@ padding:0.5em 10px;
 
 }
 
+/*Estilo de los iconos de la página*/
 .icon{
 	display: inline-block;
 	width: 1.5em;
@@ -388,6 +396,7 @@ padding:0.5em 10px;
 	width:50vw;
 }
 
+/*Estilos para los cuadros de texto de los formularios*/
 .input__down{
     position:relative;
     top:10px;
@@ -425,6 +434,7 @@ padding:0.5em 10px;
     padding: 0;
 }
 
+/*Estilos para los enlaces*/
 .link{
     outline: none;
     text-decoration: none;
@@ -448,6 +458,7 @@ padding:0.5em 10px;
 	margin-bottom: 20px;
 }
 
+/*Por si quiero que el contenido de la web esté centrado*/
 .main--center{
     align-items: center;
     display: flex;
@@ -509,6 +520,7 @@ padding:0.5em 10px;
 	background-color: var(--color_green);
 }
 
+/*Estilos para los perfiles de los usuarios*/
 .retrait{
 	background-color: white;
 	border: 2px solid black;
@@ -520,6 +532,7 @@ padding:0.5em 10px;
     min-width: 100px;
 }
 
+/*Estilos para las tablas*/
 .table{
     border:1px solid var(--color_grey);
     padding: 5px;
@@ -542,7 +555,7 @@ padding:0.5em 10px;
     background-color: white;
 }
 
-
+/*Estilos para los textos, párrafos, etc.*/
 .text--center, .progress-bar{
 	text-align: center;
 }
@@ -552,7 +565,7 @@ padding:0.5em 10px;
     width:300px;
     max-width: calc(var(--lateralMenu) - 75px);
 }
-/*EStilos para los textos*/
+
 .text--Komika,
 .progress-bar,
 form input,
@@ -590,7 +603,7 @@ form select{
 	}
 }
 
-@media(max-width:705px){
+@media(max-width:700px){
     h1.title{
 		display:none;
 	}

@@ -1,12 +1,14 @@
-
+<!--Cargamos la sección lateral-->
 @section('lateral_menu')
 <section class="box box__center">
   <img class="img--50_50 retrait" src="{{asset('assets/icons/perfil_happy.svg')}}" alt="retrato" id="perfilImg">
   <h2 class="title--komika title--komika__big">Usuario</h2>
 </section>
+
+<!--No cargamos el contenido del usuario seleccionado si se ha venido de una petición-->
 @if(!isset($user))
   @component('_components.edituser')
-
+    <!--Formulario para crear el usuario al no existir usuario -->
   @slot('formUser')
     <form name="formuser" action="{{route('user.storeUser')}}" method="POST" id="formUser">
     @csrf
@@ -42,6 +44,7 @@
   @endslot
 
   @endcomponent
+  <!--Si el usuario existe, entonces el formulario es de actualización-->
 @else
   @component('_components.edituser')
 
@@ -89,4 +92,5 @@
 
 @endsection
 
+<!--Una vez cargados los datos de la petición, mostramos el resultado recogiendo la plantilla del menú lateral-->
 @include('layouts._partials.aside')

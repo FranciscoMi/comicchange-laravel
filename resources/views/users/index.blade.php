@@ -1,5 +1,7 @@
+<!--Cargamos la plantilla de la web-->
 @extends('layouts.landing')
 
+<!--Cargamos el menú-->
 @section('title', 'Bienvenido a la sala de Control')
 
 @section('section_title','Administración de usuarios')
@@ -10,7 +12,7 @@
     @include('layouts._partials.closesession')
 @endsection
 
-
+<!--Agregamos la sección de contenido-->
 @section('main')
 <div id="hiddenLayer" class="hidden"></div>
 @include('layouts._partials.boxdelete')
@@ -20,6 +22,7 @@
 </main>
 @endsection
 
+<!--Cargamos el footer-->
 @section('footerclass','footer--down')
 
 <!--Sección de Laravel. insertamos un texto en el footer-->
@@ -29,7 +32,7 @@
 	<span> Proyecto "ComicChange" para Ilerna.</span>
 </div>
 @endsection
-
+<!--Cargamos los scripts de la página-->
 @section('scripts')
     <script src="{{asset('js/modules/aside.js')}}"></script>
     <script src="{{asset('js/modules/users.js')}}"></script>

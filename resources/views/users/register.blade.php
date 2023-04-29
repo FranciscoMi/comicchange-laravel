@@ -1,4 +1,4 @@
-<!--Incluimos el enlace a la caja de login cuando se pulse el votón "Reunirse"-->
+<!--Cargamos la plantilla genérica de la web-->
 @extends('layouts.landing')
 
 @section('title','Comic Change - Aficionados a los Comics')
@@ -11,7 +11,7 @@
   @include('layouts._partials.btnlogin')
 @endsection
 
-
+<!--Cargamos la ventana con los contenidos de registro-->
 @section('main')
 <main class="main-screen main--center">
 
@@ -45,7 +45,7 @@
 
   @slot('accreditation_forgot')
   <p>
-    <a id="registerToLogin" class="text--Komika text--center link btn__close" href="{{route('user.login')}}">¿Ya tienes cuenta?. Inicia sesión</a>
+    <a id="registerToLogin" class="title--white text--Komika text--center link btn__close" href="{{route('user.login')}}">¿Ya tienes cuenta?. Inicia sesión</a>
   </p>
   @endslot
 
