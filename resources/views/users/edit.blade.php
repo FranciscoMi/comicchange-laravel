@@ -8,7 +8,7 @@
   @component('_components.edituser')
 
   @slot('formUser')
-    <form name="formuser" action="{{route('user.store')}}" method="POST" id="formUser">
+    <form name="formuser" action="{{route('user.storeUser')}}" method="POST" id="formUser">
     @csrf
   @endslot
 

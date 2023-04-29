@@ -62,6 +62,8 @@ class UserController extends Controller
 	  return back()->with('success', 'El usuario se ha creado correctamente');
 	}//end store
 
+
+
     public function update(UserRequest $request, User $user){
         //Validamos los datos
         $validatedData = $request->validated();

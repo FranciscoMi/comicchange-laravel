@@ -24,20 +24,36 @@ public function edit(User $user){
 }//end edit
 
 //funcion que crea al usuario
-public function createUser(CreateUserRequest $request)
+public function createUser(UserRequest $request)
   {
-  //Creamos un objeto usuario para comparar y hacer login
+    //función para  comprobar lo que envía en un json
+    //dd($request->all());
+    //Validamos los datos
+    $validatedData = $request->validated();
+  // Guardar el objeto User en la base de datos
   $user=User::create([
-    'idrole'=>'3',
+    'idrole'=>$request->idrole,
     'name'=>$request->name,
     'email'=>$request->email,
-    'password'=>Hash::make($request->password)
+    'password'=>Hash::make($request->password),
   ]);
+
+    //Actualizamos la tabla datos de usuarios
+    $datauser = $user->datauser;
+    $datauser->age = $validatedData['age'];
+    $datauser->city = $validatedData['city'];
+    $datauser->country = $validatedData['country'];
+    $datauser->cp = $validatedData['cp'];
+    $datauser->gender = $validatedData['gender'];
+    $datauser->save();
+
     //En caso de que el usuario sea correcto, lanzamos un mensaje y creamos un token de sesión
-    return back()->with('success', 'El usuario se ha creado correctamente')->json([
-        'status'=>true,
-        'token'=>$user->createToken("API TOKEN")->plainTextToken
-    ],200);
+     // Devolver la respuesta con el recurso como respuesta y el token
+     $token = $user->createToken("API TOKEN")->plainTextToken;
+     return back()->with([
+      'api_token'=>$token,
+      'success'=>'El usuario se ha creado correctamente']);
+
   }//end create user
 
   public function loginUser(LoginRequest $request)

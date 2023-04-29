@@ -36,6 +36,9 @@ Route::middleware('auth:sanctum','admin')->group(function(){
     /* Mostrar los datos de los comic en su index*/
     Route::view('/comics','comics.index')->name('comic.index');
 
+    /*Ruta del controlador para almacenar los datos de usuario  */
+    Route::post('/users/storeUser',[AuthController::class, 'createUser'])->name('user.storeUser');
+
 });//end middleware admin group
 
 /*Rutas para el panel de usuarios. Acceso Administradores y colaboradores*/
@@ -43,8 +46,6 @@ Route::middleware('auth:sanctum','Colaborador')->group(function(){
      /* Mostrar los datos de los comic en su index*/
      Route::view('/comics','comics.index')->name('comic.index');
 });
-
-
 
 /*Ruta del controlador para eliminar usuarios*/
 Route::delete('/users/destroy/{user}',[UserController::class, 'destroy'])->name('user.destroy');
