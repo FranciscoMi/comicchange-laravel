@@ -39,6 +39,10 @@ Route::middleware('auth:sanctum','admin')->group(function(){
     /*Ruta del controlador para almacenar los datos de usuario  */
     Route::post('/users/storeUser',[AuthController::class, 'createUser'])->name('user.storeUser');
 
+    /*Ruta del controlador para filtrar por campos*/
+    Route::get('/users/search', [UserController::class, 'search'])->name('users.search');
+
+
 });//end middleware admin group
 
 /*Rutas para el panel de usuarios. Acceso Administradores y colaboradores*/

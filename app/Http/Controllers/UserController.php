@@ -47,6 +47,33 @@ class UserController extends Controller
 		return view('users.login');
 	}//end login
 
+    //Función que permite filtrar los usuarios
+    public function search(Request $request)
+    {
+    	$query = User::query();
+    	if ($request->has('idrole'))
+        {
+          //whereIn busca Todos los usuarios que tienen el mismo id en el modelo Role
+          if ($request->has('idrole')) {
+            $query->whereHas('role', function($q) use($request) {
+                $q->where('role', 'like', '%' . $request->input('idrole') . '%');
+            });
+        }
+
+    	}
+    	if ($request->has('name')) {
+    	  $query->where('name', 'like', '%' . $request->input('name') . '%');
+    	}
+    	if ($request->has('email')) {
+    	  $query->where('email', 'like', '%' . $request->input('email') . '%');
+    	}
+    	$users = $query->get();
+        $roles = Role::all();
+        $userResource=UserResource::collection($users);
+    	return view('users.index',compact('userResource','users','roles'));
+    }
+
+
 
   //Función que almacena los datos de los usuarios
   public function store(CreateUserRequest $request){
