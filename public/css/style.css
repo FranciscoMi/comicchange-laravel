@@ -144,7 +144,6 @@ form input{
 .box__stretch::before{
     content: '';
     display: block;
-    margin-top: 1em;
 }
 
 
@@ -190,8 +189,7 @@ form input{
 .btn{
 background-color:transparent;
 border: 0;
-color: white;
-padding: 0 5px;
+padding:0.5em 10px;
 }
 
 .btn:hover{
@@ -222,6 +220,10 @@ padding: 0 5px;
 
 .btn--grey{
     background-color: var(--color_grey);
+}
+
+.btn--padding{
+    padding:1em 10px;
 }
 
 .btn--red{
@@ -278,10 +280,18 @@ padding: 0 5px;
 	color:var(--color_grey);
 }
 
-.color--red{
+.color--red,
+.btn--yellow{
 	color:var(--color_red);
 }
 
+.color--white,
+.btn--red,
+.btn--blue,
+.btn--grey,
+.btn--green{
+    color:var(--text_white);
+}
 .delete-user-link{
     border:none;
     background-color: transparent;
@@ -418,6 +428,7 @@ padding: 0 5px;
 .link{
     outline: none;
     text-decoration: none;
+
 }
 
 .logo,
@@ -562,12 +573,11 @@ form select{
 }
 
 .title--Komika__small, .text-cite{
-	font-size: 12   px;
+	font-size: 12px;
 }
 
+
 .title--white,
-.link:link,
-.link:visited,
 .disabled{
 	color:white;
 }
@@ -580,6 +590,12 @@ form select{
 	}
 }
 
+@media(max-width:705px){
+    h1.title{
+		display:none;
+	}
+}
+
 @media(max-width:670px){
 	.box__350{
 		max-width: 350px;
@@ -587,7 +603,9 @@ form select{
 		margin-right: auto;
 	}
 
-	h1.title{
+
+}@media(max-width:415px){
+    #logoindex{
 		display:none;
 	}
 }

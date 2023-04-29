@@ -77,5 +77,16 @@ public function createUser(UserRequest $request)
         default:
             return redirect()->route('index')->with('api_token', $token);
     }
-}
+}//fin loginUser
+
+//función para cerrar la sesión
+public function logout()
+{
+    Auth::logout();
+    Session::flush();
+
+    return redirect('/')->with('success', 'Sesión cerrada correctamente');
+}//fin función logout
+
+
 }

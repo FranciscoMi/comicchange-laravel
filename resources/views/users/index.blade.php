@@ -5,14 +5,9 @@
 @section('section_title','Administración de usuarios')
 
 @section('register')
-    <a class="btn btn--green btn__transition text--Komika box__stretch btn__close">
-        Usuarios
-    </a>
-    <a class="btn btn--grey btn__transition text--Komika box__stretch btn__close">
-        Comics
-    </a>
-    <a class="btn btn--red btn__transition text--Komika box__stretch btn__close">Salir
-    </a>
+    @section('colorbtncomics','btn--green')
+    @section('colorbtnuser','btn--grey')
+    @include('layouts._partials.closesession')
 @endsection
 
 

@@ -4,15 +4,10 @@
 
 @section('section_title','Administración de Comics')
 
+@section('colorbtnuser','btn--grey')
+@section('colorbtncomics','btn--gren')
 @section('register')
-    <button class="btn btn--grey btn__transition text--Komika box__stretch btn__close">
-        Usuarios
-    </button>
-    <button class="btn btn--green btn__transition text--Komika box__stretch btn__close">
-        Comics
-    </button>
-    <button class="btn btn--red btn__transition text--Komika box__stretch btn__close">Salir
-    </button>
+  @include('layouts._partials.closesession')
 @endsection
 
 @section('action','')

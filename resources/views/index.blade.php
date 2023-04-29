@@ -5,7 +5,10 @@
 @section('section_title', 'El Coleccionista de comics')
 
 <!--Muestra los botones de registro en el navegador-->
+
 @section('register')
+    @section('colorbtncomics','btn--yellow')
+    @section('colorbtnuser','btn--yellow')
 	@include('layouts._partials.btnlogin')
 @endsection
 

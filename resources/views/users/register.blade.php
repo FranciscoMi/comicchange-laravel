@@ -4,8 +4,10 @@
 @section('title','Comic Change - Aficionados a los Comics')
 
 <!--Muestra los botones de registro en el navegador-->
+
 @section('register')
-  @include('layouts._partials.btnhome')
+  @section('colorbtncomics','btn--yellow')
+  @section('colorbtnuser','btn--yellow')
   @include('layouts._partials.btnlogin')
 @endsection
 

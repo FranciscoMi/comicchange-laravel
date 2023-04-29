@@ -47,6 +47,7 @@ Route::middleware('auth:sanctum','Colaborador')->group(function(){
      Route::view('/comics','comics.index')->name('comic.index');
 });
 
+
 /*Ruta del controlador para eliminar usuarios*/
 Route::delete('/users/destroy/{user}',[UserController::class, 'destroy'])->name('user.destroy');
 
@@ -67,7 +68,7 @@ Route::post('/users/createUser',[AuthController::class, 'createUser'])->name('us
 //Acceso desde el panel de autenticación de usuarios
 Route::post('/users/loginUser',[AuthController::class, 'loginUser'])->name('user.loginAuth');
 
-
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 //rutas Generadas por Laravel
 /*Route::get('/welcome', function () {
     return view('welcome');
