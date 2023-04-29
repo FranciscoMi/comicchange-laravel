@@ -33,16 +33,17 @@
 				</div>
 			</td>
 		</tr>
-		<tr>
+		<tr id="sortTr">
 			<td colspan="2" class="btn text--Komika btn--green btn--short"><a class="link" href="{{route('user.index')}}">Nuevo</a></td>
-			<td class="btn btn--grey card"><a>Role</a></td>
-			<td class="btn btn--grey card"><a>Alias</a></td>
-			<td class="btn btn--grey card"><a>Mail</a></td>
+			<td class="btn btn--grey card"><a class="link" href="{{ route('user.index', ['sort_by' => 'role']) }}" data-sort-by="3">Role</a></td>
+			<td class="btn btn--grey card"><a class="link" href="{{ route('user.index', ['sort_by' => 'name']) }}" data-sort-by="4">Alias</a></td>
+			<td class="btn btn--grey card"><a class="link" href="{{ route('user.index', ['sort_by' => 'email']) }}" data-sort-by="5">Mail</a></td>
 		</tr>
 		<tr>
 			<td colspan="2"></td>
 			<td colspan="3"><hr class="line"></td></tr>
-		@foreach ($userResource as $newuser )
+		<tbody id="datesTable">
+        @foreach ($userResource as $newuser )
 		<tr class="table-row">
 			<td>
 				<form action="{{route('user.destroy',$newuser->id)}}" method=POST class="title--komika">
@@ -57,6 +58,7 @@
 			<td>{{$newuser->email}}</td>
 		</tr>
 		@endforeach
+        </tbody>
 		@endif
 	</table>
 </section>
