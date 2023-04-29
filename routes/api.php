@@ -19,13 +19,14 @@ use App\Http\Controllers\DatauserController;
 Route::resource('/datauser',DatauserController::class);
 
 //Rutas para login y access
-//Acceso al panel de creación de usuarios
-Route::post('/users/createUser',[AuthController::class, 'createUser'])->name('user.createAuth');
+//Acceso desde panel de creación de usuarios
+//Route::post('/users/createUser',[AuthController::class, 'createUser'])->name('user.createAuth');
+//Acceso desde el panel de autenticación de usuarios
+//Route::post('/users/loginUser',[AuthController::class, 'loginUser'])->name('user.loginAuth');
 
-//Acceso al panel de autenticación de usuarios
-Route::post('/users/loginUser',[AuthController::class, 'loginUser'])->name('user.loginAuth');
 
-//Ruta middleware para controlar los tokens de autorización
+
+//Ruta middleware para controlar los tokens de autorización establecida por Laravel
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

@@ -9,7 +9,7 @@ class Role extends Model
 {
     use HasFactory;
 
-   
+
      /**
      * The attributes that are mass assignable.
      *
@@ -36,7 +36,7 @@ class Role extends Model
     //----------Relaciones----------
     public function users()
     {
-        return $this->hasMany(User::class, 'id', 'idrole'); //relación (N:1)(1,n)
+        return $this->hasMany(User::class, 'idrole'); //relación (N:1)(1,n)
     }
     //-----------Fin Relaciones--------
 }

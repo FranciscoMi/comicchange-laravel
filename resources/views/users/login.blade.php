@@ -15,7 +15,8 @@
 
 @section('formaction')
 	<form name="formlogin" action="{{route('user.loginAuth')}}" id="formLogin" method="POST">
-        @csrf
+    @csrf
+    @method('POST')
 @endsection
 
 

@@ -37,8 +37,8 @@
         @yield('btnlogin')
         <input class="btn btn--red btn--box" type="reset" value="Borrar">
       </div>
-      {{$accreditation_forgot}}
       @include('layouts._partials.messages')
+      {{$accreditation_forgot}}
     </article>
 
 </section>

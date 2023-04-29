@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateUserRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
@@ -14,6 +15,7 @@ use App\Models\Datauser;
 
 class UserController extends Controller
 {
+
 	public function index(){
 		$users = User::all();
         $roles = Role::all();
@@ -45,6 +47,7 @@ class UserController extends Controller
 		return view('users.login');
 	}//end login
 
+
   //Función que almacena los datos de los usuarios
   public function store(CreateUserRequest $request){
 	//Almacenamos los datos del usuario en una nueva variable
@@ -58,21 +61,6 @@ class UserController extends Controller
 	  //redirijo al usuario a la página de donde partió con un mensaje de éxito
 	  return back()->with('success', 'El usuario se ha creado correctamente');
 	}//end store
-
-	/*public function update(UserRequest $request, User $user){
-		$user->name = $request->input('name');
-		$user->idrole = $request->input('idrole');
-		if ($request->input('password')!=null){
-			$user->password = Hash::make($request->input('password'));
-		}else{
-			$user->password =$user->password;
-		};
-		$user->save();
-
-
-
-	  return back()->with('success', 'El usuario se ha actualizado correctamente');
-	}//end update*/
 
     public function update(UserRequest $request, User $user){
         //Validamos los datos

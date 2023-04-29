@@ -14,26 +14,9 @@ use App\Http\Resources\UserResource;
 use App\Http\Requests\UserRequest;
 
 class AuthController extends Controller{
+//Controlador para autentificar al usuario en el sistema
 
-	public function index(){
-		$users = User::all();
-        $roles = Role::all();
-        $userResource=UserResource::collection(User::all());
-		return view('users.index',compact('userResource','users','roles'));
-	}//end index
-
-	//Función que controla la vista de creación
-	public function create(){
-		return view('users.register');
-	}//end create
-
-//Función que elimina los datos del usuario seleccionado
-	public function destroy(User $user){
-		$user->delete();
-		return back()->with('success', 'El usuario se ha eliminado correctamente');
-	}
-
-  //Función que controla la vista de edición los datos del usuario
+//Función que controla la vista de edición los datos del usuario
 public function edit(User $user){
     $roles = Role::all();
     $userResource=UserResource::collection(User::all());
@@ -41,36 +24,42 @@ public function edit(User $user){
 }//end edit
 
 //funcion que crea al usuario
-    public function createUser(CreateUserRequest $request)
+public function createUser(CreateUserRequest $request)
   {
   //Creamos un objeto usuario para comparar y hacer login
-  User::create([
+  $user=User::create([
     'idrole'=>'3',
     'name'=>$request->name,
     'email'=>$request->email,
     'password'=>Hash::make($request->password)
   ]);
-
-  //En caso de que el usuario sea correcto, lanzamos un mensaje y creamos un token de sesión
-  return back()->with('success', 'El usuario se ha creado correctamente');
+    //En caso de que el usuario sea correcto, lanzamos un mensaje y creamos un token de sesión
+    return back()->with('success', 'El usuario se ha creado correctamente')->json([
+        'status'=>true,
+        'token'=>$user->createToken("API TOKEN")->plainTextToken
+    ],200);
   }//end create user
 
-  public function loginUser(LoginRequest $request){
-    if(!Auth::attempt($request->only(['email','password']))){
-      return back()->withErrors(['failed'=> 'El Correo o la Contraseña no están en el sistema']);
-    }//end if
+  public function loginUser(LoginRequest $request)
+{
+    if(!Auth::attempt($request->only(['email','password'])))
+    {
+        return back()->with('failed','El Correo o la Contraseña no están en el sistema');
+    }
 
-    $user=User::where('email',$request->email)->first();
-    Session::flash('success', 'Acceso concedido');
-      switch($user->idrole){
+    $user = User::where('email', $request->email)->first();
+    $token = $user->createToken("API TOKEN")->plainTextToken;
+
+    // Almacenamos el token en la sesión del usuario
+    session()->put('api_token', $token);
+
+    switch ($user->idrole) {
         case 1:
-          return redirect()->route('user.index');
-          break;
+            return redirect()->route('user.index')->with('api_token', $token);
         case 2:
-          return redirect()->route('comic.index');
-          break;
+            return redirect()->route('comic.index')->with('api_token', $token);
         default:
-          return redirect()->route('index');
-      }//end switch
-  }
+            return redirect()->route('index')->with('api_token', $token);
+    }
+}
 }
