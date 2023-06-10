@@ -24,7 +24,7 @@ class CreateUserRequest extends FormRequest
         return [
         //Solicitamos campos de acceso
         'name' => 'required|string|max:15|min:4',
-        'email' => 'required|string|email|max:255|unique:users,email',
+        'email' => 'required|string|email|max:255|regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i|unique:users,email',
         'password' => 'required|string|min:4|same:password_confirmation',
         'idrole' => 'nullable'
         ];

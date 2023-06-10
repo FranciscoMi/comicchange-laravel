@@ -71,15 +71,6 @@ public function edit(User $user)
     return view('users.index', compact('user', 'users', 'roles', 'userResource'));
 }
 
-
-
-/*public function edit(User $user){
-    $userId=User::find($user);
-    $roles = Role::all();
-    $userResource=UserResource::collection(User::all());
-	return view('users.index',compact('user','roles','userResource'));
-  }*/
-
 	//Función que controla el acceso del usuario
 	public function login(){
 		return view('users.login');

@@ -23,7 +23,7 @@ class UserRequest extends FormRequest
   {
     return [
       'name' => 'required|string|max:15|min:4',
-      'email' => 'required|string|email|max:255',
+      'email' => 'required|string|email|regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i|max:255',
       'password' => 'nullable|string|min:4',
       'idrole' => 'required',
 
