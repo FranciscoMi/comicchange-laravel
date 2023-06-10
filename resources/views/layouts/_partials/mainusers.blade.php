@@ -40,13 +40,16 @@
 
     <!--Apartado que muestra los datos y los ordena alfabéticamente según el campo que se pulse-->
     <tr id="sortTr">
-      <!--Este enlace carga la página de creación de usuarios-->
-      <td colspan="2" class="btn text--Komika btn--green btn--short"><a class="link btn--green" href="{{route('user.index')}}">Nuevo</a></td>
-      <!--Estos enlaces muestran los campos y los ordena según se pulse-->
-      <td class="btn btn--grey card"><a class="link btn--grey" href="{{ route('user.index', ['sort_by' => 'email']) }}" data-sort-by="3">Mail</a></td>
-      <td class="btn btn--grey card"><a class="link btn--grey" href="{{ route('user.index', ['sort_by' => 'name']) }}" data-sort-by="4">Alias</a></td>
-      <td class="btn btn--grey card"><a class="link btn--grey" href="{{ route('user.index', ['sort_by' => 'role']) }}" data-sort-by="5">Role</a></td>
+        <!--Este botón carga la página de creación de usuarios-->
+        <td colspan="2" id="btnNewUser" class="btn text--Komika btn--green btn--short">
+            <a class="link btn--green" href="{{route('user.index')}}" data-sort-by="2">Nuevo</a>
+        </td>
+        <!--Estos enlaces muestran los campos y los ordena según se pulse-->
+        <td class="btn btn--grey card"><a class="link btn--grey" href="{{ route('user.index', ['sort_by' => 'email']) }}" data-sort-by="3">Mail</a></td>
+        <td class="btn btn--grey card"><a class="link btn--grey" href="{{ route('user.index', ['sort_by' => 'name']) }}" data-sort-by="4">Alias</a></td>
+        <td class="btn btn--grey card"><a class="link btn--grey" href="{{ route('user.index', ['sort_by' => 'role']) }}" data-sort-by="5">Role</a></td>
     </tr>
+
     <tr>
       <td colspan="2"></td>
       <td colspan="3"><hr class="line"></td></tr>

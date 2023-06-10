@@ -36,7 +36,6 @@
             e.preventDefault();
             //extraemos el enlace y lo guardamos en una variable
             const sortBy = srtBtn.dataset.sortBy;
-            console.log(sortBy);
             //Hacemos la llamada a la función sortTbody
             sortTbody(sortBy)
         });//fin click
@@ -44,20 +43,28 @@
 
   //// Función para ordenar la tabla
   function sortTbody(sortBy) {
-    //buscamos el elemento datesTable y los metemos en un array
-  const datesTable=document.querySelector('#datesTable');
-  const rows = Array.from(datesTable.querySelectorAll('tr'));
+    const datesTable = document.querySelector('#datesTable');
+    const rows = Array.from(datesTable.querySelectorAll('tr'));
 
-  rows.sort((a, b) => {
-    const cellA = a.querySelector(`td:nth-of-type(${sortBy})`);
-    const cellB = b.querySelector(`td:nth-of-type(${sortBy})`);
-    return cellA.textContent.localeCompare(cellB.textContent);
+    rows.sort((a, b) => {
+      const cellA = a.querySelector(`td:nth-of-type(${sortBy})`);
+      const cellB = b.querySelector(`td:nth-of-type(${sortBy})`);
+      return cellA.textContent.localeCompare(cellB.textContent);
+    });
+
+    // Actualizar la tabla con las filas ordenadas
+    datesTable.innerHTML = '';
+    rows.forEach(row => datesTable.appendChild(row));
+  }
+
+  // Obtener el enlace "Nuevo"
+  const btnNewUser = document.querySelector('#btnNewUser a');
+
+  // Agregar evento de clic al enlace "Nuevo"
+  btnNewUser.addEventListener('click', function(e) {
+    e.preventDefault(); // Evitar que se active el evento de ordenación de la tabla
+    window.location.href = this.getAttribute('href'); // Redirigir a la página user.index
   });
-
-  // Actualizar la tabla con las filas ordenadas
-  datesTable.innerHTML = '';
-  rows.forEach(row => datesTable.appendChild(row));
-}
 
 
   })//fin DOMContentLoaded
