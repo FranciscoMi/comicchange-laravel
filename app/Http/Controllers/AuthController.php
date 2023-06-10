@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Http\Resources\UserResource;
 use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller{
 //Controlador para autentificar al usuario en el sistema
@@ -26,8 +27,17 @@ public function edit(User $user){
 //funcion que crea al usuario
 public function createUser(UserRequest $request)
   {
-    //función para  comprobar lo que envía en un json
-    //dd($request->all());
+    //Antes de hacer nada compruebo que el correo ya está en el sistema
+    $mail = $request->input('email');
+
+    // Verificar si el correo electrónico ya existe
+    $existingUser = DB::table('users')->where('email', $mail)->first();
+
+
+    if ($existingUser) {
+        // El correo electrónico ya existe, muestra un mensaje de error o realiza alguna acción adecuada
+        return back()->with('failed', 'El correo electrónico ya está en uso');
+    }
     //Validamos los datos
     $validatedData = $request->validated();
   // Guardar el objeto User en la base de datos
