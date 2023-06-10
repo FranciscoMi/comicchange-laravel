@@ -96,27 +96,17 @@ public function edit(User $user)
 
   //Función que almacena los datos de los usuarios
   public function store(CreateUserRequest $request){
-    //Antes de hacer nada compruebo que el correo ya está en el sistema
-    $mail = $request->input('email');
-
-    // Verificar si el correo electrónico ya existe
-    $existingUser = DB::table('users')->where('email', $mail)->first();
-
-
-    if ($existingUser) {
-        // El correo electrónico ya existe, muestra un mensaje de error o realiza alguna acción adecuada
-        return back()->with('error', 'El correo electrónico ya está en uso');
-    }
 	//Almacenamos los datos del usuario en una nueva variable
+    //Almacenamos los datos del usuario en una nueva variable
     User::create([
-	  'idrole'=>'3',
-	  'name'=> $request->name,
-	  'email'=>$request->email,
-	  'password'=>Hash::make($request->password)
-	]);
+        'idrole'=>'3',
+        'name'=> $request->name,
+        'email'=>$request->email,
+        'password'=>Hash::make($request->password)
+      ]);
 
-	  //redirijo al usuario a la página de donde partió con un mensaje de éxito
-	  return redirect()->route('user.index')->with('success', 'Usuario creado exitosamente');
+        //redirijo al usuario a la página de donde partió con un mensaje de éxito
+        return back()->with('success', 'El usuario se ha creado correctamente');
 	}//end store
 
 
