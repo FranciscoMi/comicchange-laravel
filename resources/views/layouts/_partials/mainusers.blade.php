@@ -73,11 +73,14 @@
       <td>{{$newuser->role['role']}}</td>
     </tr>
     @endforeach
-    <tr>
-        <td colspan="5"><!-- Mostrar la paginación -->
-        {{ $users->links() }}</td>
-    </tr>
     </tbody>
+
+    @if($userResource->count() > 14)
+        <tr>
+            <td colspan="5">{{ $userResource->links() }}</td>
+        </tr>
+    @endif
+
     @endif
   </table>
 </section>

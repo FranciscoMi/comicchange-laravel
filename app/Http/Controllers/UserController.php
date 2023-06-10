@@ -16,13 +16,38 @@ use App\Models\Datauser;
 class UserController extends Controller
 {
 
-	public function index(){
+    public function index(Request $request)
+{
+    $sortBy = $request->query('sort_by', 'id'); // Campo de ordenación predeterminado
+    $sortOrder = $request->query('sort_order', 'asc'); // Orden predeterminado
+
+    $users = User::orderBy($sortBy, $sortOrder);
+
+    if ($users->count() <= 15) {
+        $users = $users->get();
+        $roles = Role::all();
+        $userResource = UserResource::collection($users);
+
+        return view('users.index', compact('userResource', 'users', 'roles'));
+    }
+
+    $users = $users->paginate(15);
+    $roles = Role::all();
+    $userResource = UserResource::collection($users);
+
+    return view('users.index', compact('userResource', 'users', 'roles'));
+}
+
+
+
+
+	/*public function index(){
 		//$users = User::all();
         $users=User::paginate(10);
         $roles = Role::all();
         $userResource=UserResource::collection(User::paginate(10));
 		return view('users.index',compact('userResource','users','roles'));
-	}//end index
+	}//end index*/
 
 	//Función que controla la vista de creación
 	public function create(){
@@ -36,12 +61,24 @@ class UserController extends Controller
 	}
 
 //Función que controla la vista de edición los datos del usuario
-	public function edit(User $user){
+
+public function edit(User $user)
+{
+    $users=User::find($user);
+    $roles = Role::all();
+    $userResource = UserResource::collection($users);
+
+    return view('users.index', compact('user', 'users', 'roles', 'userResource'));
+}
+
+
+
+/*public function edit(User $user){
     $userId=User::find($user);
     $roles = Role::all();
     $userResource=UserResource::collection(User::all());
 	return view('users.index',compact('user','roles','userResource'));
-  }
+  }*/
 
 	//Función que controla el acceso del usuario
 	public function login(){
