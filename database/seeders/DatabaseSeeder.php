@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
@@ -57,5 +58,8 @@ class DatabaseSeeder extends Seeder
             'img'=>null
             ]
         ]);
+
+        //Creamos una base de datos temporal para hacer pruebas
+        User::factory()->count(50)->create();
     }
 }

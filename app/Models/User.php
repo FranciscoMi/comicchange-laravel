@@ -4,7 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-use Brick\Math\BigInteger;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -74,6 +74,8 @@ class User extends Authenticatable
         return $this->hasOne(Datauser::class,'user_id')->withDefault(); //Relación (1:1)
     }
 
-
     //-----------------Fin Relaciones-----------
 }
+
+
+
