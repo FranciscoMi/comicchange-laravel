@@ -17,9 +17,10 @@ class UserController extends Controller
 {
 
 	public function index(){
-		$users = User::all();
+		//$users = User::all();
+        $users=User::paginate(10);
         $roles = Role::all();
-        $userResource=UserResource::collection(User::all());
+        $userResource=UserResource::collection(User::paginate(10));
 		return view('users.index',compact('userResource','users','roles'));
 	}//end index
 
@@ -31,7 +32,7 @@ class UserController extends Controller
 //Función que elimina los datos del usuario seleccionado
 	public function destroy(User $user){
 		$user->delete();
-		return back()->with('success', 'El usuario se ha eliminado correctamente');
+		return redirect()->route('user.index')->with('success', 'El usuario se ha eliminado correctamente');
 	}
 
 //Función que controla la vista de edición los datos del usuario

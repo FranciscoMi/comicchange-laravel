@@ -25,7 +25,7 @@
       btnYes.addEventListener("click",()=>e.target.closest('form').submit());
     });//fin btn
   });//fin btnDelete
-
+/*
 //Método para ordenar los datos en cliente
   //creamos una constante que recoja las columnas td de sorTr
     const sortTrBtn=sortTr.querySelectorAll('td a');
@@ -44,7 +44,9 @@
   //// Función para ordenar la tabla
   function sortTbody(sortBy) {
     const datesTable = document.querySelector('#datesTable');
+
     const rows = Array.from(datesTable.querySelectorAll('tr'));
+    // Escucha el evento DOMSubtreeModified en la tabla
 
     rows.sort((a, b) => {
       const cellA = a.querySelector(`td:nth-of-type(${sortBy})`);
@@ -66,6 +68,6 @@
     window.location.href = this.getAttribute('href'); // Redirigir a la página user.index
   });
 
-
+*/
   })//fin DOMContentLoaded
 })(); //fin users.js

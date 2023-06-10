@@ -73,6 +73,10 @@
       <td>{{$newuser->role['role']}}</td>
     </tr>
     @endforeach
+    <tr>
+        <td colspan="5"><!-- Mostrar la paginación -->
+        {{ $users->links() }}</td>
+    </tr>
     </tbody>
     @endif
   </table>
