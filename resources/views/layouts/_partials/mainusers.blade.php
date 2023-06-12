@@ -3,7 +3,8 @@
 <section>
   <!--Si no hay usuarios pone un título- y marca que no hay usuarios. Es absurdo porque no te deja acceder, pero por si acaso -->
   @if($userResource->isEmpty())
-    <h2 class=" title--komika title--komika__big">Esto está un poco vacio.<br>No hay usuarios</h2>
+    <h2 class=" title--komika title--komika__big text--center">Esto está un poco vacio.<br>No hay usuarios</h2>
+    <p class="btn text--Komika btn--red btn--short center"><a class="link btn--red" href="{{route('user.index')}}">Limpiar Consulta</a></p>
   @else
   <!--Pero como si hay usuarios, generamos la tabla con tooooodos los usuarios-->
   <table id="tableUsers" class="text--Komika text--center table">
@@ -74,12 +75,14 @@
     </tr>
     @endforeach
     </tbody>
-
-    @if($userResource->count() > 14)
-        <tr>
-            <td colspan="5">{{ $userResource->links() }}</td>
-        </tr>
-    @endif
+    <!--Mostramos los campos de paginación-->
+    @if($users->count() > 15)
+    <tr>
+        <td colspan="5">
+            {{ $userResource->appends(['sort_by' => $sortBy, 'sort_order' => $sortOrder])->links() }}
+        </td>
+    </tr>
+@endif
 
     @endif
   </table>

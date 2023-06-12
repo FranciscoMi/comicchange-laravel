@@ -37,6 +37,7 @@ form input{
 	height:20px;
 }
 
+
 /*Estilo del boton que oculta el menú lateral*/
 #btnHide{
   position: absolute;
@@ -60,8 +61,8 @@ form input{
 }
 
 /*Formulario de búsqueda.*/
-#formSearch,
 #formLogin,
+#formSearch,
 .title,
 .label{
 	display: block;
@@ -88,7 +89,7 @@ form input{
 	min-width:320px;
     width: 75vw;
 }
-/*Tbla de usuarios*/
+/*Tabla de usuarios*/
 #tableUsers{
     border: 0;
 }
@@ -157,12 +158,12 @@ form input{
     justify-content: space-evenly;
 }
 
-.box__right{
-    justify-content: flex-start;
-}
-
 .box__padding{
 	padding:0 20px;
+}
+
+.box__right{
+    justify-content: flex-start;
 }
 
 .box__relative{
@@ -270,6 +271,12 @@ padding:0.5em 10px;
 	margin: var(--cardMargin);
 }
 
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /*Colores para los elementos*/
 .color--blue{
 	color:var(--color_blue);
@@ -339,9 +346,10 @@ padding:0.5em 10px;
 }
 
 .framework div{
+    align-items: center;
 	padding-left:10px;
     padding-right: 10px;
-	align-items: center;
+
 }
 
 /*Estilos para los elementos ocultos y para ocultarlos en caso de necesidad*/
@@ -386,8 +394,8 @@ padding:0.5em 10px;
 }
 
 .img--150_250{
+    height: 250px;
 	width: 150px;
-	height: 250px;
 }
 
 .img--500_300{
@@ -398,10 +406,10 @@ padding:0.5em 10px;
 
 /*Estilos para los cuadros de texto de los formularios*/
 .input__down{
-    position:relative;
-    top:10px;
     left:calc(var(--lateralMenu) - 300px);
     margin-bottom: 10px;
+    position:relative;
+    top:10px;
 }
 
 .input__half{
@@ -423,8 +431,8 @@ padding:0.5em 10px;
 }
 
 .input__search--border-no{
-    height: 40px;
     border: 0;
+    height: 40px;
 }
 
 .line{
@@ -443,27 +451,27 @@ padding:0.5em 10px;
 
 .logo,
 .btn--box{
-	max-width:125px;
 	height:50px;
     margin-left: 5px;
     margin-right: 5px;
+    max-width:125px;
 }
 
 .main-screen{
-	max-width:1200px;
+    margin-bottom: 20px;
 	margin-left:auto;
 	margin-right: auto;
+    max-width:1200px;
     min-width:350px;
 	padding: 0 10px;
-	margin-bottom: 20px;
 }
 
 /*Por si quiero que el contenido de la web esté centrado*/
 .main--center{
     align-items: center;
     display: flex;
-    min-height: 80vh;
     justify-content: center;
+    min-height: 80vh;
 }
 
 .margin-top__50{
@@ -478,8 +486,8 @@ padding:0.5em 10px;
 
 .menu--header{
   background-color:var(--color_yellow);
-  margin:0;
   border-bottom: 2px inset var(--color_grey);
+  margin:0;
   padding:0 5px;
 }
 

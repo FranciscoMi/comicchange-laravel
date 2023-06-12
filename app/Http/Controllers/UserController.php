@@ -21,23 +21,24 @@ class UserController extends Controller
 {
     $sortBy = $request->query('sort_by', 'id'); // Campo de ordenación predeterminado
     $sortOrder = $request->query('sort_order', 'asc'); // Orden predeterminado
-
-    $users = User::orderBy($sortBy, $sortOrder);
-
-    if ($users->count() <= 15) {
-        $users = $users->get();
+    //Variables de ordenación
+    $usersQuery = User::orderBy($sortBy, $sortOrder);
+    $usersCount = $usersQuery->count();
+    //Comprobamos que la cantidad de usuarios sea menor de 15
+    if ($usersCount <= 15) {
+        $users = $usersQuery->get();
         $roles = Role::all();
         $userResource = UserResource::collection($users);
-
-        return view('users.index', compact('userResource', 'users', 'roles'));
+        return view('users.index', compact('userResource', 'users', 'roles', 'sortBy'));
     }
-
-    $users = $users->paginate(15);
+    //Paginamos los datos en caso de que sea mayor
+    $users = $usersQuery->paginate(15);
     $roles = Role::all();
     $userResource = UserResource::collection($users);
-
-    return view('users.index', compact('userResource', 'users', 'roles'));
+    //Reenviamos los datos ordenados
+    return view('users.index', compact('userResource', 'users', 'roles', 'sortBy', 'sortOrder'));
 }
+
 
 	//Función que controla la vista de creación
 	public function create(){
@@ -68,29 +69,34 @@ public function edit(User $user)
 
     //Función que permite filtrar los usuarios
     public function search(Request $request)
-    {
-    	$query = User::query();
-    	if ($request->has('idrole'))
-        {
-          //whereIn busca Todos los usuarios que tienen el mismo id en el modelo Role
-          if ($request->has('idrole')) {
-            $query->whereHas('role', function($q) use($request) {
-                $q->where('role', 'like', '%' . $request->input('idrole') . '%');
-            });
-        }
+{
+    $sortBy = $request->query('sort_by', 'id'); // Campo de ordenación predeterminado
+    $sortOrder = $request->query('sort_order', 'asc'); // Orden predeterminado
 
-    	}
-    	if ($request->has('name')) {
-    	  $query->where('name', 'like', '%' . $request->input('name') . '%');
-    	}
-    	if ($request->has('email')) {
-    	  $query->where('email', 'like', '%' . $request->input('email') . '%');
-    	}
-    	$users = $query->get();
-        $roles = Role::all();
-        $userResource=UserResource::collection($users);
-    	return view('users.index',compact('userResource','users','roles'));
+    $query = User::query();
+
+    if ($request->has('idrole')) {
+        $query->whereHas('role', function ($q) use ($request) {
+            $q->where('role', 'like', '%' . $request->input('idrole') . '%');
+        });
     }
+
+    if ($request->has('name')) {
+        $query->where('name', 'like', '%' . $request->input('name') . '%');
+    }
+
+    if ($request->has('email')) {
+        $query->where('email', 'like', '%' . $request->input('email') . '%');
+    }
+
+    // Nos aseguramos de que los datos estén ordenados y paginados
+    $users = $query->orderBy($sortBy, $sortOrder)->paginate(15);
+
+    $roles = Role::all();
+    $userResource = UserResource::collection($users);
+
+    return view('users.index', compact('userResource', 'users', 'roles', 'sortBy', 'sortOrder'));
+}
 
 
 
