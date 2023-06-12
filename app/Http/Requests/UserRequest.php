@@ -26,7 +26,6 @@ class UserRequest extends FormRequest
       'email' => 'required|string|email|regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i|max:255',
       'password' => 'nullable|string|min:4',
       'idrole' => 'required',
-
       'age' => 'nullable|string|min:0|max:3',
       'city' => 'nullable|string|max:120',
       'country' => 'nullable|string|max:60',

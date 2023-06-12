@@ -47,7 +47,7 @@
         <!--Estos enlaces muestran los campos y los ordena según se pulse-->
         <td class="btn btn--grey card"><a class="link btn--grey" href="{{ route('user.index', ['sort_by' => 'email']) }}" data-sort-by="3">Mail</a></td>
         <td class="btn btn--grey card"><a class="link btn--grey" href="{{ route('user.index', ['sort_by' => 'name']) }}" data-sort-by="4">Alias</a></td>
-        <td class="btn btn--grey card"><a class="link btn--grey" href="{{ route('user.index', ['sort_by' => 'role']) }}" data-sort-by="5">Role</a></td>
+        <td class="btn btn--grey card"><a class="link btn--grey" href="{{ route('user.index', ['sort_by' => 'idrole']) }}" data-sort-by="5">Role</a></td>
     </tr>
 
     <tr>
