@@ -84,6 +84,10 @@ public function createUser(UserRequest $request)
             return redirect()->route('user.index')->with('api_token', $token);
         case 2:
             return redirect()->route('comic.index')->with('api_token', $token);
+        case 3:
+            Auth::logout();
+            Session::flush();
+            return redirect()->route('user.login')->with('failed', 'Próximamente tendrás acceso a tu web personal');
         default:
             return redirect()->route('index')->with('api_token', $token);
     }
