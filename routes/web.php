@@ -19,7 +19,10 @@ use App\Http\Controllers\AuthController;
 /*mostrar la landing-page*/
 Route::view('/','index')->name('index');
 
-
+//Si alguien intenta acceder a la pagina de usuarios redirigirle a la de login
+Route::get('/users/loginUser', function () {
+    return redirect()->route('user.login');
+});
 
 /*Rutas para el panel de usuarios. Acceso solo Administradores*/
 Route::middleware('auth:sanctum','admin')->group(function(){
@@ -34,7 +37,7 @@ Route::middleware('auth:sanctum','admin')->group(function(){
 	Route::put('/users/update/{user}',[UserController::class, 'update'])->name('user.update');
 
     /* Mostrar los datos de los comic en su index*/
-    Route::view('/comics','comics.index')->name('comic.index');
+    /*Route::view('/comics','comics.index')->name('comic.index');
 
     /*Ruta del controlador para almacenar los datos de usuario  */
     Route::post('/users/storeUser',[AuthController::class, 'createUser'])->name('user.storeUser');
@@ -45,8 +48,8 @@ Route::middleware('auth:sanctum','admin')->group(function(){
 
 });//end middleware admin group
 
-/*Rutas para el panel de usuarios. Acceso Administradores y colaboradores*/
-Route::middleware('auth:sanctum','Colaborador')->group(function(){
+/*Rutas para el panel de comics. Acceso Administradores y colaboradores*/
+Route::middleware('auth:sanctum','role:Administrador,Colaborador')->group(function(){
      /* Mostrar los datos de los comic en su index*/
      Route::view('/comics','comics.index')->name('comic.index');
 });
@@ -65,7 +68,7 @@ Route::get('/users/login',[UserController::class, 'login'])->name('user.login');
 Route::post('/users/store',[UserController::class, 'store'])->name('user.store');
 
 /* Mostrar los datos de los comic en su index*/
-Route::view('/comics','comics.index')->name('comic.index');
+//Route::view('/comics','comics.index')->name('comic.index');
 
 //Acceso desde panel de creación de usuarios
 Route::post('/users/createUser',[AuthController::class, 'createUser'])->name('user.createAuth');
@@ -73,19 +76,4 @@ Route::post('/users/createUser',[AuthController::class, 'createUser'])->name('us
 Route::post('/users/loginUser',[AuthController::class, 'loginUser'])->name('user.loginAuth');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-//rutas Generadas por Laravel
-/*Route::get('/welcome', function () {
-    return view('welcome');
-});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-require __DIR__.'/auth.php';*/

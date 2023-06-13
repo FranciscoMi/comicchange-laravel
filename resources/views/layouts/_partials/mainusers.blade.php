@@ -76,7 +76,7 @@
     @endforeach
     </tbody>
     <!--Mostramos los campos de paginación-->
-    @if($users->count() > 15)
+    @if($users->count() > 14)
     <tr>
         <td colspan="5">
             {{ $userResource->appends(['sort_by' => $sortBy, 'sort_order' => $sortOrder])->links() }}

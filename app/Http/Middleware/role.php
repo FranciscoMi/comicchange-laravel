@@ -14,10 +14,14 @@ class role
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next, ...$roles)
     {
-        return $next($request);
+        $user = $request->user();
 
+        if ($user && in_array($user->role->role, $roles)) {
+            return $next($request);
+        }
 
+        return redirect()->route('user.login')->with('failed', 'El Correo o la Contraseña no están en el sistema');
     }
 }
